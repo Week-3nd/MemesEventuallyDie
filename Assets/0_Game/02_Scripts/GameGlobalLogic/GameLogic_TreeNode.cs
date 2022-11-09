@@ -9,13 +9,15 @@ public class TreeNode
     public List<TreeNode> Children = new List<TreeNode>();
 
     //Node content
+    //Display
+    public GameObject AssociatedGameObject;
     //Gameplay
     public int ShareState = 0; // 0 = facebook | 1 = nothing | 2 = shared | 3 = special event...
     public int SpecialEventIndexInfluence = 0;
     //Fluff
     public string Username;
     public string Description;
-    public Texture ProfilePicture;
+    public int ProfilePicture;
     public Texture ProfileBanner;
     public float FollowersCount;
     public bool IsVerified;
@@ -38,9 +40,8 @@ public class TreeNode
         {
             ShareState = 1;
         }
+        ProfilePicture = Random.Range(0, 5); //hardcodé pour le moment
     }
-
-
 
     public int GetDepth()
     {
