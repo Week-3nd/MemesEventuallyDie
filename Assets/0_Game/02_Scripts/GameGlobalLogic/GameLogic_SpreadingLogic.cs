@@ -17,7 +17,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     [Tooltip("NumberOfFailedNodesBeforeStoppingEvaluation")]
     public int AuthorizedFails = 10;
 
-    public int Score = 0;
+    public int Score = 1;
     public Tree SocialNetwork = new Tree();
 
     private int CurrentDepth = 1;
@@ -33,7 +33,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
             if (CurrentDepth == FormerDepth) { break; }
             FormerDepth = CurrentDepth;
         }
-        Debug.Log("Score : "+Score+" (in depth "+SocialNetwork.DepthLists.Count+")  | Node count : "+SocialNetwork.treeNodesList.Count);
+        Debug.Log("Depth "+SocialNetwork.DepthLists.Count+")  | Node count : "+SocialNetwork.treeNodesList.Count);
     }
 
     public int AddDepthRow()
