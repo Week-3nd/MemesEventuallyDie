@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeSuccessThreshold: 0.5
+  NodeSuccessThreshold: 0.7
   NodeFailureThreshold: 0.1
   TentativesOfReshare: 4
   AuthorizedFails: 10
@@ -575,7 +575,7 @@ MonoBehaviour:
   NetworkParent: {fileID: 659073782}
   HorizontalSpacing: 5
   VerticalSpacing: 5
-  TimeBetweenRows: 0.7
+  TimeBetweenRows: 0.5
   NetworkProfileObject: {fileID: 7686656742560006060, guid: 3652467fbb1009b4ab70aeb864fe869b, type: 3}
   ProfilePictures:
   - {fileID: 21300000, guid: 37a50fa30811c5e4dbdddd513a07fe88, type: 3}
