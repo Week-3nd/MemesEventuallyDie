@@ -541,9 +541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NodeSuccessThreshold: 0.6
-  NodeFailureThreshold: 0.1
+  NodeFailureThreshold: 0.2
   TentativesOfReshare: 3
-  AuthorizedFails: 100
+  AuthorizedFails: 50
   Score: 0
 --- !u!114 &659073786
 MonoBehaviour:
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackEndReference: {fileID: 659073785}
   FollowingCamera: {fileID: 1220443817}
-  TemporaryObjectCoordinatesToZoomFactor: 0.3
+  TemporaryObjectCoordinatesToZoomFactor: 0.28125
   AuthorizationToDraw: 0
   Origin: {x: 0, y: 0}
   NetworkParent: {fileID: 659073782}
@@ -884,22 +884,31 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.5
       inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      outSlope: Infinity
+      tangentMode: 97
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.5
-      inSlope: -0.067647934
-      outSlope: -0.067647934
-      tangentMode: 0
+      value: 0.7
+      inSlope: -0.42680025
+      outSlope: -0.56457585
+      tangentMode: 1
       weightedMode: 3
       inWeight: 0.33333334
-      outWeight: 0.37567976
+      outWeight: 0.22353888
+    - serializedVersion: 3
+      time: 2.5
+      value: 0.4
+      inSlope: -0.062711924
+      outSlope: -0.062307827
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.39471617
+      outWeight: 0.32819048
     - serializedVersion: 3
       time: 10
       value: 0.15
@@ -907,14 +916,14 @@ MonoBehaviour:
       outSlope: -0.011097958
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.4391532
+      inWeight: 0.4430919
       outWeight: 0.055438567
     - serializedVersion: 3
       time: 50
       value: 0.01
       inSlope: -0.00011127743
-      outSlope: -0.00011127743
-      tangentMode: 0
+      outSlope: -0.00017999999
+      tangentMode: 65
       weightedMode: 3
       inWeight: 0.66751057
       outWeight: 0.33333334
@@ -1083,7 +1092,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.7216981, g: 0.9326318, b: 1, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.8160377, b: 0.9844539, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

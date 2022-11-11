@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     //Size
     private float TargetZoom = 4.0f;
     private float LastZoom = 4.0f;
+    private float MaxZoom = 4.0f;
 
     //SpeedManagement
     private float DurationToNextZoom = 0.5f;
@@ -60,6 +61,16 @@ public class CameraFollow : MonoBehaviour
         LastZoom = this.GetComponent<Camera>().orthographicSize;
         TargetPosition = NewTargetPosition;
         TargetZoom = NewTargetZoom; if (TargetZoom < 4) { TargetZoom = 4; }
+        // /*
+        if (TargetZoom > MaxZoom)
+        {
+            MaxZoom = TargetZoom;
+        }
+        if (TargetZoom < MaxZoom)
+        {
+            TargetZoom = MaxZoom;
+        }
+        // */
         DurationToNextZoom = Duration;
         ZoomIterationTimer = 0.0f;
     }

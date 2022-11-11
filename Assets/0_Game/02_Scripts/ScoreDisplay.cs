@@ -29,7 +29,8 @@ public class ScoreDisplay : MonoBehaviour
 
         if (Timer >= IncrementInterval && DisplayedScore < RealScore)
         {
-            DisplayedScore += 1;
+            int amount = Mathf.RoundToInt(Timer/IncrementInterval);
+            DisplayedScore += amount;
             Timer = 0.0f;
             ScoreText.text = DisplayedScore.ToString();
             //Debug.Log(DisplayedScore.ToString());

@@ -8,6 +8,10 @@ public class TreeNode
     public TreeNode Parent = null;
     public List<TreeNode> Children = new List<TreeNode>();
 
+    //Display info
+    public float HorizontalPosition = 0.0f;
+    public int ColumnIndex = 0;
+
     //Node content
     //Display
     public GameObject AssociatedGameObject;
@@ -22,7 +26,10 @@ public class TreeNode
     public float FollowersCount;
     public bool IsVerified;
     public bool HasCommunityBadge;
-    
+
+
+    //Descending tree function
+    private List<TreeNode> Descendants = new List<TreeNode>();
 
 
     public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold)
@@ -55,6 +62,28 @@ public class TreeNode
         }
 
         return i;
+    }
+
+    public int LengthOfFirstbornLine()
+    {
+        if (this.Parent != null && this.Parent.Children[0] == this) // Si parent existe ET son aîné·e est cette node
+        {
+            return 1 + this.Parent.LengthOfFirstbornLine(); // To verify
+        }
+        return 0; 
+    }
+
+    public List<TreeNode> GetDescendingTree()
+    {
+        Descendants.Add(this);
+        if (Children != null)
+        {
+            foreach (TreeNode Node in Children)
+            {
+                Descendants.AddRange(Node.GetDescendingTree());
+            }
+        }
+        return Descendants;
     }
 
     public string GetNodeTreeInfo()

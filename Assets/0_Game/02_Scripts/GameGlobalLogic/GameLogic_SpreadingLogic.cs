@@ -22,21 +22,35 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     private int CurrentDepth = 1;
     private int FormerDepth = 1;
+    private bool canContinue = true;
 
 
 
     public void EvaluateNetwork()
     {
-        while (NumberOfFailedNodes < AuthorizedFails)
+        while (NumberOfFailedNodes < AuthorizedFails && canContinue)
         {
-            CurrentDepth = AddDepthRow();
-            if (CurrentDepth == FormerDepth) { break; }
-            FormerDepth = CurrentDepth;
+            //canContinue = HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]);
+            AddDepthRow();
+            canContinue = HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]);
+            //Debug.Log("Row : " + SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1] + " | Can continue : " + canContinue);
         }
-        Debug.Log("Depth "+SocialNetwork.DepthLists.Count+")  | Node count : "+SocialNetwork.treeNodesList.Count);
+        //Debug.Log("Depth "+SocialNetwork.DepthLists.Count+" | Node count : "+SocialNetwork.treeNodesList.Count);
     }
 
-    public int AddDepthRow()
+    private bool HasWinsInRow (List<TreeNode> treeNodes)
+    {
+        foreach (TreeNode NodeToCheck in treeNodes)
+        {
+            if (NodeToCheck.ShareState == 2)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void AddDepthRow()
     {
         //Debug.Log("Previous depth : " + SocialNetwork.DepthLists.Count);
         foreach (TreeNode currentNode in SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1])
@@ -58,7 +72,6 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 }
             }
         }
-        return SocialNetwork.DepthLists.Count;
         //Debug.Log("New depth : " + SocialNetwork.DepthLists.Count);
     }
 }
