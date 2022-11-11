@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
@@ -14,31 +12,41 @@ public class ScoreDisplay : MonoBehaviour
     private float Timer = 0.0f;
     private float IncrementInterval = 10.0f;
     private bool LastScoreUpdateDone = false;
+    private bool StopCalculating = false;
+
+
+
+    private void Update()
+    {
+        if (!StopCalculating)
+        {
+            Timer += Time.deltaTime;
+            StoredScore = RealScore - DisplayedScore;
+
+            IncrementInterval = SpeedAccordingToStoredScoreReference.CurveList[0].Evaluate(StoredScore);
+
+            if (Timer >= IncrementInterval && DisplayedScore < RealScore)
+            {
+                int amount = Mathf.RoundToInt(Timer / IncrementInterval);
+                DisplayedScore += amount;
+                Timer = 0.0f;
+                ScoreText.text = DisplayedScore.ToString();
+                //Debug.Log(DisplayedScore.ToString());
+            }
+            else if (Timer >= IncrementInterval && LastScoreUpdateDone && DisplayedScore == RealScore)
+            {
+                ObjectToActivateUponFinish.SetActive(true);
+                StopCalculating = true;
+            }
+        }
+        
+
+
+    }
 
     public void SetScoreDisplay(int ScoreToDisplay)
     {
         RealScore = ScoreToDisplay;
-    }
-
-    public void Update()
-    {
-        Timer += Time.deltaTime;
-        StoredScore = RealScore - DisplayedScore;
-
-        IncrementInterval = SpeedAccordingToStoredScoreReference.CurveList[0].Evaluate(StoredScore);
-
-        if (Timer >= IncrementInterval && DisplayedScore < RealScore)
-        {
-            int amount = Mathf.RoundToInt(Timer/IncrementInterval);
-            DisplayedScore += amount;
-            Timer = 0.0f;
-            ScoreText.text = DisplayedScore.ToString();
-            //Debug.Log(DisplayedScore.ToString());
-        }
-        else if (Timer >= IncrementInterval && LastScoreUpdateDone && DisplayedScore == RealScore)
-        {
-            ObjectToActivateUponFinish.SetActive(true);
-        }
     }
 
     public void LastScoreUpdate()

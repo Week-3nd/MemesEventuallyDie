@@ -47,8 +47,8 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     
     public void StartDrawing()
     {
-        SocialNetwork = BackEndReference.SocialNetwork; // LoadNetwork data
-        CalculatePositions();
+        SocialNetwork = BackEndReference.SocialNetwork;
+        CalculatePositionsT1(); // place to put function A
         AuthorizationToDraw = true;
         RowTimer = TimeBetweenRows;
     }
@@ -61,7 +61,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             if (RowTimer >= TimeBetweenRows && NextRow < SocialNetwork.DepthLists.Count)
             {
                 RowTimer = 0.0f;
-                DrawRow(NextRow);
+                DrawRowT1(NextRow); // place to put function B
                 NextRow++;
             }
             else if (NextRow >= SocialNetwork.DepthLists.Count)
@@ -72,7 +72,20 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         }
     }
     
-    private void CalculatePositions()
+
+
+
+
+    // We can use one of these groups of functions
+    
+
+
+
+    // GROUP 1
+    // Displays efficiently, though don't show links very nicely
+
+    // function A
+    private void CalculatePositionsT1()
     {
         int currentDepthIndex = SocialNetwork.DepthLists.Count - 1;
         //initialize by giving last row the minimal space between nodes
@@ -109,8 +122,72 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         
     }
 
+    // function B
+    private void DrawRowT1(int depth)
+    {
+        List<TreeNode> currentDepthList = SocialNetwork.DepthLists[depth];
+        float HorizontalNeededSpace = (currentDepthList.Count - 1) * HorizontalSpacing;
+        CurrentHorizontalPosition = Origin.x - (HorizontalNeededSpace / 2);
+        int index = 0;
+        foreach (TreeNode currentNode in currentDepthList)
+        {
+            //Create object
+            GameObject NewNode = Instantiate(
+                NetworkProfileObject,
+                new Vector3(CurrentHorizontalPosition, CurrentVerticalPosition, 0f),
+                Quaternion.identity,
+                NetworkParent.transform);
 
-    public void AlternateCalculatePosition()
+            //Assign TreeNode information
+            currentNode.AssociatedGameObject = NewNode;
+            NewNode.GetComponent<SpriteRenderer>().sprite = ProfilePictures[currentNode.ProfilePicture];
+            NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
+
+            //Extract Node score information
+            if (currentNode.ShareState == 2)
+            {
+                Score++;
+                ScoreDisplayUI.SetScoreDisplay(Score);
+            }
+
+            //Create Arrow to parent
+            if (currentNode.Parent != null)
+            {
+                Vector2 end = currentNode.Parent.AssociatedGameObject.transform.position - NewNode.transform.position;
+                NewNode.GetComponentInChildren<GenerateArrow>().GenArrow(Vector2.zero, end, ArrowWidth, ArrowMaterial);
+            }
+
+            //Create data for camera to follow the row
+            if (index == 0)
+            {
+                LeftMostObjectToDraw = CurrentHorizontalPosition;
+            }
+            else if (index == currentDepthList.Count - 1)
+            {
+                RightMostObjectToDraw = CurrentHorizontalPosition;
+            }
+
+            //Prepare next iteration of the loop
+            CurrentHorizontalPosition += HorizontalSpacing;
+            index++;
+        }
+
+        //Camera data
+        FollowingCamera.GetComponent<CameraFollow>().SetTarget(
+            new Vector3(0, CurrentVerticalPosition, -20),
+            TemporaryObjectCoordinatesToZoomFactor * (HorizontalNeededSpace + 2 * HorizontalSpacing),
+            TimeBetweenRows);
+
+        //Prepare next row
+        CurrentVerticalPosition -= VerticalSpacing;
+    }
+
+
+    // GROUP 2
+    // Builds a correct tree visualization but puts waaay too much space on the first levels
+
+    // function A
+    public void CalculatePositionsT2()
     {
         //Calculating each node's position to make it nice
         //STEP 1
@@ -125,28 +202,44 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         // (To draw on a sheet of paper for understanding)
         //
         //STEP 4
+        //For all nodes without children (sharestate 0 or 1), move them close to their siblings
+
+        //STEP 5
         //Center each parent over it's children
         //
 
 
         //STEP 1 : fill OrderedNodeList
-        Debug.Log("Node coordinates calculations : STEP 1 started");
+        //Debug.Log("Node coordinates calculations : STEP 1 started");
         RecursiveTreeOrderStep1(SocialNetwork.root);
         Debug.Log("Node coordinates calculations : STEP 1 finished");
 
         //STEP 2
-        Debug.Log("Node coordinates calculations : STEP 2 started");
+        //Debug.Log("Node coordinates calculations : STEP 2 started");
         RecursiveTreeOrderStep2(SocialNetwork.root);
         Debug.Log("Node coordinates calculations : STEP 2 finished");
 
         //STEP 3
-        Debug.Log("Node coordinates calculations : STEP 3 started");
+        //Debug.Log("Node coordinates calculations : STEP 3 started");
         RecursiveTreeOrderStep3(SocialNetwork.root);
         Debug.Log("Node coordinates calculations : STEP 3 finished");
 
         //STEP 4
-        // /*
-        Debug.Log("Node coordinates calculations : STEP 4 started");
+          /*
+        foreach (TreeNode treeNode in OrderedNodeList)
+        {
+            if (treeNode.Children.Count == 0 && treeNode.Parent.Children.IndexOf(treeNode) != 0)
+            {
+                treeNode.HorizontalPosition =
+                    treeNode.Parent.Children[treeNode.Parent.Children.IndexOf(treeNode) - 1].HorizontalPosition + HorizontalSpacing;
+            }
+            
+        }
+        // */
+
+        //STEP 5
+         //    /* //This line to be commented
+        //Debug.Log("Node coordinates calculations : STEP 4 started");
         int inverseIndex = SocialNetwork.DepthLists.Count - 1;
         //Debug.Log("Number of Rows" + inverseIndex);
         for (; inverseIndex > -1; inverseIndex -= 1)
@@ -168,7 +261,6 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         Debug.Log("Node coordinates calculations : STEP 4 finished");
         // */
     }
-
 
     private void RecursiveTreeOrderStep1(TreeNode RootNode)
     {
@@ -229,73 +321,8 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-    private void DrawRow(int depth)
-    {
-        List<TreeNode> currentDepthList = SocialNetwork.DepthLists[depth];
-        float HorizontalNeededSpace = (currentDepthList.Count - 1) * HorizontalSpacing;
-        CurrentHorizontalPosition = Origin.x - (HorizontalNeededSpace / 2);
-        int index = 0;
-        foreach (TreeNode currentNode in currentDepthList)
-        {
-            //Create object
-            GameObject NewNode = Instantiate(
-                NetworkProfileObject,
-                new Vector3(CurrentHorizontalPosition, CurrentVerticalPosition, 0f),
-                Quaternion.identity,
-                NetworkParent.transform);
-
-            //Assign TreeNode information
-            currentNode.AssociatedGameObject = NewNode;
-            NewNode.GetComponent<SpriteRenderer>().sprite = ProfilePictures[currentNode.ProfilePicture];
-            NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
-
-            //Extract Node score information
-            if (currentNode.ShareState == 2)
-            {
-                Score++;
-                ScoreDisplayUI.SetScoreDisplay(Score);
-            }
-
-            //Create Arrow to parent
-            if (currentNode.Parent != null)
-            {
-                Vector2 end = currentNode.Parent.AssociatedGameObject.transform.position - NewNode.transform.position;
-                NewNode.GetComponentInChildren<GenerateArrow>().GenArrow(Vector2.zero, end, ArrowWidth, ArrowMaterial);
-            }
-
-            //Create data for camera to follow the row
-            if (index == 0)
-            {
-                LeftMostObjectToDraw = CurrentHorizontalPosition;
-            }
-            else if (index == currentDepthList.Count - 1)
-            {
-                RightMostObjectToDraw = CurrentHorizontalPosition;
-            }
-
-            //Prepare next iteration of the loop
-            CurrentHorizontalPosition += HorizontalSpacing;
-            index++;
-        }
-
-        //Camera data
-        FollowingCamera.GetComponent<CameraFollow>().SetTarget(
-            new Vector3(0, CurrentVerticalPosition, -20),
-            TemporaryObjectCoordinatesToZoomFactor * (HorizontalNeededSpace + 2 * HorizontalSpacing),
-            TimeBetweenRows);
-
-        //Prepare next row
-        CurrentVerticalPosition -= VerticalSpacing;
-    }
-
-    private void SimpleDrawRow(int depth)
+    // function B
+    private void DrawRowT2(int depth)
     {
         List<TreeNode> currentDepthList = SocialNetwork.DepthLists[depth];
         
@@ -330,4 +357,6 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         }
         CurrentVerticalPosition -= VerticalSpacing;
     }
+
+
 }

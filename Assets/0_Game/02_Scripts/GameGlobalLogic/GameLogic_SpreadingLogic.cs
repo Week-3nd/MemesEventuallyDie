@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameLogic_SpreadingLogic : MonoBehaviour
 {
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme shared. If lower : meme not shared.")]
-    public float NodeSuccessThreshold = 0.9f;
+    public float SuccessProbability = 0.2f;
+    private float NodeSuccessThreshold = 0.9f;
 
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme not shared. If lower : meme shared on facebook.")]
-    public float NodeFailureThreshold = 0.1f;
+    public float FailureProbability = 0.05f;
+    private float NodeFailureThreshold = 0.1f;
     private int NumberOfFailedNodes = 0;
 
     [Tooltip("For each successful share, number of times we attempt to share again.")]
@@ -20,11 +22,13 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     public int Score = 1;
     public Tree SocialNetwork = new Tree();
 
-    private int CurrentDepth = 1;
-    private int FormerDepth = 1;
     private bool canContinue = true;
 
-
+    private void Start()
+    {
+        NodeFailureThreshold = FailureProbability;
+        NodeSuccessThreshold = 1 - SuccessProbability;
+    }
 
     public void EvaluateNetwork()
     {

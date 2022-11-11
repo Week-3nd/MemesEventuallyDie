@@ -10,6 +10,7 @@ public class TreeNode
 
     //Display info
     public float HorizontalPosition = 0.0f;
+    public int XUnitsOfSpace = 1; // max number of times the size of a profile horizontal axis
     public int ColumnIndex = 0;
 
     //Node content
@@ -84,6 +85,18 @@ public class TreeNode
             }
         }
         return Descendants;
+    }
+
+    public List<List<TreeNode>> GetDescendingTreeByRow()
+    {
+        List<List<TreeNode>> DescendantsByRow = new List<List<TreeNode>>();
+        List<TreeNode> TempDescendantsList = GetDescendingTree();
+        foreach (TreeNode currentNode in TempDescendantsList)
+        {
+
+        }
+
+        return DescendantsByRow;
     }
 
     public string GetNodeTreeInfo()

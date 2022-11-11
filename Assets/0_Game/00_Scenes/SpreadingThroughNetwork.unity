@@ -540,11 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeSuccessThreshold: 0.6
-  NodeFailureThreshold: 0.2
+  SuccessProbability: 0.35
+  FailureProbability: 0.05
   TentativesOfReshare: 3
   AuthorizedFails: 50
-  Score: 0
+  Score: 1
 --- !u!114 &659073786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,7 +559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackEndReference: {fileID: 659073785}
   FollowingCamera: {fileID: 1220443817}
-  TemporaryObjectCoordinatesToZoomFactor: 0.28125
   AuthorizationToDraw: 0
   Origin: {x: 0, y: 0}
   NetworkParent: {fileID: 659073782}
