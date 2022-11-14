@@ -7,7 +7,7 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     /// <summary>
     /// Index of Day
     /// </summary>
-    static public int DayIndex = 0;
+    static private int DayIndex = 0;
 
     public int NextDay()
     {
@@ -24,7 +24,7 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     /// <summary>
     /// List of ALL fans, wether they are available or tasked for something
     /// </summary>
-    static public List<TreeNode> FansList = new List<TreeNode>();
+    static private List<TreeNode> FansList = new List<TreeNode>();
 
     public List<TreeNode> GetFansList()
     {
@@ -35,5 +35,22 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         FansList.AddRange(NewFans);
     }
 
+
+
+    static private List<List<TreeNode>> CommunityLists = new List<List<TreeNode>>();
+
+    public List<List<TreeNode>> GetCommunityLists()
+    {
+        return CommunityLists;
+    }
+    public List<TreeNode> GetSpecificCommunityList(int index)
+    {
+        return CommunityLists[index];
+    }
+
+    public void AddUserToCommunityList(TreeNode user, int ListIndex)
+    {
+        CommunityLists[ListIndex].Add(user);
+    }
 
 }
