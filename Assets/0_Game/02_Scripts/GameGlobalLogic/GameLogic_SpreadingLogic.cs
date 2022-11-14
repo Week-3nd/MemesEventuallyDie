@@ -22,7 +22,6 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     [Tooltip("NumberOfFailedNodesBeforeStoppingEvaluation")]
     public int AuthorizedFails = 10;
 
-    public int Score = 1;
     public Tree SocialNetwork = new Tree();
 
     private bool canContinue = true;
@@ -54,8 +53,16 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 NewFans.Add(node);
             }
         }
-        dataKeeper.AddFansToList(NewFans);
-        Debug.Log("Score : " + (Score + 1) + " | Depth : " + SocialNetwork.DepthLists.Count + " | Node count : " + SocialNetwork.treeNodesList.Count+" | New fans : "+NewFans.Count+" | Total fans : "+dataKeeper.GetFansList().Count);
+        List<TreeNode> Sharers = new List<TreeNode>();
+        foreach (TreeNode node in SocialNetwork.treeNodesList)
+        {
+            if (node.ShareState == 2)
+            {
+                Sharers.Add(node);
+            }
+        }
+        
+        Debug.Log("Depth : " + SocialNetwork.DepthLists.Count + " | Node count : " + SocialNetwork.treeNodesList.Count+" | Sharers : "+Sharers.Count+" including "+NewFans.Count+ " new fans. | Total fans : " + dataKeeper.GetFansList().Count);
     }
 
     private bool HasWinsInRow (List<TreeNode> treeNodes)
@@ -81,11 +88,8 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 {
                     TreeNode ChildNode = SocialNetwork.AddChild(currentNode);
                     ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
-                    if (ChildNode.ShareState == 2)
-                    {
-                        Score++;
-                    }
-                    else if (ChildNode.ShareState == 0)
+                    //handle the stopping code (the scoring isnt needed yet here
+                    if (ChildNode.ShareState == 0)
                     {
                         NumberOfFailedNodes++;
                     }

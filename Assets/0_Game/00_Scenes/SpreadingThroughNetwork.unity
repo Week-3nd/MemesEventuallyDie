@@ -545,7 +545,6 @@ MonoBehaviour:
   FailureProbability: 0.05
   TentativesOfReshare: 3
   AuthorizedFails: 50
-  Score: 1
   dataKeeper: {fileID: 2080246563}
 --- !u!114 &659073786
 MonoBehaviour:
@@ -581,6 +580,8 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.029119492, a: 1}
   ArrowWidth: 0.2
   ArrowMaterial: {fileID: 2100000, guid: 01f562b07612e1442b0d7334511f6ce9, type: 2}
+  ShareScore: 1
+  FanScore: 3
   ScoreDisplayUI: {fileID: 1038196480}
 --- !u!1 &758397479
 GameObject:

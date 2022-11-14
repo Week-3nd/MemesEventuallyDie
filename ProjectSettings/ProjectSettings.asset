@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: MemesEventuallyDie
+  companyName: "Th\xE9ophile Dreux"
+  productName: MEMES DIE TOO
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 0.7877358, b: 0.9637259, a: 1}

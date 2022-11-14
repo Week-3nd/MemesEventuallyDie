@@ -40,6 +40,8 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
 
     //Score output
     private int Score = 0;
+    public int ShareScore = 1;
+    public int FanScore = 3;
     public ScoreDisplay ScoreDisplayUI;
 
 
@@ -152,7 +154,15 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             //Extract Node score information
             if (currentNode.ShareState == 2)
             {
-                Score++;
+                
+                if (currentNode.isFan)
+                {
+                    Score += FanScore;
+                }
+                else
+                {
+                    Score += ShareScore;
+                }
                 ScoreDisplayUI.SetScoreDisplay(Score);
             }
 
@@ -342,7 +352,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             //Extract Node score information
             if (currentNode.ShareState == 2)
             {
-                Score++;
+                //Score++;
                 ScoreDisplayUI.SetScoreDisplay(Score);
             }
 
