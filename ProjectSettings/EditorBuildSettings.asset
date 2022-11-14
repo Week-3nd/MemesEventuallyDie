@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/0_Game/00_Scenes/MainMenu.unity
+    guid: e23d3d2c7b424fa49b59cbf0b09d76f0
+  - enabled: 1
+    path: Assets/0_Game/00_Scenes/MemeDefinition.unity
+    guid: 00afe32efea987b46a13cfd9b1fde269
+  - enabled: 1
     path: Assets/0_Game/00_Scenes/SpreadingThroughNetwork.unity
     guid: 1e8b6da81bbc45a46851303f3d2c9b70
+  - enabled: 1
+    path: Assets/0_Game/00_Scenes/CommunityManagement.unity
+    guid: f0bc04d15723b70469179cd3d2786325
   m_configObjects: {}

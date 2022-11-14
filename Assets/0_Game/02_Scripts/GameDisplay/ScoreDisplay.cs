@@ -13,7 +13,11 @@ public class ScoreDisplay : MonoBehaviour
     private float IncrementInterval = 10.0f;
     private bool LastScoreUpdateDone = false;
     private bool StopCalculating = false;
+    public CameraFollow Camera;
 
+    public float CameraLastDezoomDuration = 0.2f;
+    private Vector3 CameraLastPosition = new Vector3();
+    private float CameraLastZoomFactor = 4.0f;
 
 
     private void Update()
@@ -37,6 +41,7 @@ public class ScoreDisplay : MonoBehaviour
             {
                 ObjectToActivateUponFinish.SetActive(true);
                 StopCalculating = true;
+                Camera.SetTarget(CameraLastPosition, CameraLastZoomFactor, CameraLastDezoomDuration);
             }
         }
         
@@ -49,8 +54,10 @@ public class ScoreDisplay : MonoBehaviour
         RealScore = ScoreToDisplay;
     }
 
-    public void LastScoreUpdate()
+    public void LastScoreUpdate(Vector3 FinalPosition, float FinalZoom)
     {
+        CameraLastPosition = FinalPosition;
+        CameraLastZoomFactor = FinalZoom;
         LastScoreUpdateDone = true;
     }
 

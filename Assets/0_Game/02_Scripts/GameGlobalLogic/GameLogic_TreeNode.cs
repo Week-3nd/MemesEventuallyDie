@@ -17,7 +17,8 @@ public class TreeNode
     //Display
     public GameObject AssociatedGameObject;
     //Gameplay
-    public int ShareState = 0; // 0 = facebook | 1 = nothing | 2 = shared | 3 = special event...
+    public int ShareState = 0; // 0 = facebook | 1 = nothing | 2 = shared
+    public bool isFan = false;
     public int SpecialEventIndexInfluence = 0;
     //Fluff
     public string Username;
@@ -33,7 +34,7 @@ public class TreeNode
     private List<TreeNode> Descendants = new List<TreeNode>();
 
 
-    public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold)
+    public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold, float FanChance)
     {
         float result = Random.value;
         if (result < FailureThreshold)
@@ -43,6 +44,11 @@ public class TreeNode
         else if (result > SuccessThreshold)
         {
             ShareState = 2;
+            float fanRandom = Random.value;
+            if (fanRandom < FanChance)
+            {
+                isFan = true; ;
+            }
         }
         else
         {

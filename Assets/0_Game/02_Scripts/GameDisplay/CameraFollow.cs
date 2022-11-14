@@ -18,6 +18,10 @@ public class CameraFollow : MonoBehaviour
     private float ZoomIterationTimer = 0.0f;
     private float TimeFactor = 0.0f;
 
+    [Tooltip("When a row has less users than the previous one, we don't zoom in fully but zoom slowly following this factor")]
+    public int RezoomFactor = 2;
+    private float RezoomRate = 1.0f;
+
 
 
     // Start is called before the first frame update
@@ -69,9 +73,15 @@ public class CameraFollow : MonoBehaviour
         if (TargetZoom < MaxZoom)
         {
             TargetZoom = MaxZoom;
+            MaxZoom -= 0.28125f * RezoomRate * RezoomFactor; // = (9/16)/2 
         }
         // */
         DurationToNextZoom = Duration;
         ZoomIterationTimer = 0.0f;
+    }
+
+    public void SetRezoomRate(float NewRezoomRate)
+    {
+        RezoomRate = NewRezoomRate;
     }
 }

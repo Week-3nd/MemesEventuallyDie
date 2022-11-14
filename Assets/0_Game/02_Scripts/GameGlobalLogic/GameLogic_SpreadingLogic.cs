@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameLogic_SpreadingLogic : MonoBehaviour
 {
+    // Network management
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme shared. If lower : meme not shared.")]
     public float SuccessProbability = 0.2f;
     private float NodeSuccessThreshold = 0.9f;
+    [Tooltip("Value between 0 and 1. If node is success, then there is this chance of it transforming into a fan.")]
+    public float FanProbabilityIfSuccess = 0.15f;
 
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme not shared. If lower : meme shared on facebook.")]
     public float FailureProbability = 0.05f;
@@ -24,6 +27,9 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     private bool canContinue = true;
 
+    //Data management
+    public SceneToSceneDataKeeper dataKeeper;
+
     private void Start()
     {
         NodeFailureThreshold = FailureProbability;
@@ -39,7 +45,17 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
             canContinue = HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]);
             //Debug.Log("Row : " + SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1] + " | Can continue : " + canContinue);
         }
-        //Debug.Log("Depth "+SocialNetwork.DepthLists.Count+" | Node count : "+SocialNetwork.treeNodesList.Count);
+
+        List<TreeNode> NewFans = new List<TreeNode>();
+        foreach (TreeNode node in SocialNetwork.treeNodesList)
+        {
+            if (node.isFan)
+            {
+                NewFans.Add(node);
+            }
+        }
+        dataKeeper.AddFansToList(NewFans);
+        Debug.Log("Score : " + (Score + 1) + " | Depth : " + SocialNetwork.DepthLists.Count + " | Node count : " + SocialNetwork.treeNodesList.Count+" | New fans : "+NewFans.Count+" | Total fans : "+dataKeeper.GetFansList().Count);
     }
 
     private bool HasWinsInRow (List<TreeNode> treeNodes)
@@ -64,7 +80,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 for (int i = 0; i < TentativesOfReshare; i++)
                 {
                     TreeNode ChildNode = SocialNetwork.AddChild(currentNode);
-                    ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold);
+                    ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
                     if (ChildNode.ShareState == 2)
                     {
                         Score++;

@@ -11,8 +11,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     //Camera Reference
     public Camera FollowingCamera;
     private float TemporaryObjectCoordinatesToZoomFactor = 0.28125f; // = (9/16)/2 (screen ratio 16/9)
-    private float LeftMostObjectToDraw;
-    private float RightMostObjectToDraw;
+    private float MaxAskedZoom = 0.0f;
 
     //Drawing network parameters
     public bool AuthorizationToDraw = false;
@@ -47,6 +46,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     
     public void StartDrawing()
     {
+        FollowingCamera.GetComponent<CameraFollow>().SetRezoomRate(HorizontalSpacing);
         SocialNetwork = BackEndReference.SocialNetwork;
         CalculatePositionsT1(); // place to put function A
         AuthorizationToDraw = true;
@@ -67,7 +67,9 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             else if (NextRow >= SocialNetwork.DepthLists.Count)
             {
                 AuthorizationToDraw = false;
-                ScoreDisplayUI.LastScoreUpdate();
+                ScoreDisplayUI.LastScoreUpdate(
+                    new Vector3(0, ((CurrentVerticalPosition + VerticalSpacing) / 2), -20),
+                    (Mathf.Abs(CurrentVerticalPosition) + VerticalSpacing) * (16/9)/2);
             }
         }
     }
@@ -142,6 +144,10 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             currentNode.AssociatedGameObject = NewNode;
             NewNode.GetComponent<SpriteRenderer>().sprite = ProfilePictures[currentNode.ProfilePicture];
             NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
+            if (currentNode.isFan)
+            {
+                NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+            }
 
             //Extract Node score information
             if (currentNode.ShareState == 2)
@@ -157,25 +163,17 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 NewNode.GetComponentInChildren<GenerateArrow>().GenArrow(Vector2.zero, end, ArrowWidth, ArrowMaterial);
             }
 
-            //Create data for camera to follow the row
-            if (index == 0)
-            {
-                LeftMostObjectToDraw = CurrentHorizontalPosition;
-            }
-            else if (index == currentDepthList.Count - 1)
-            {
-                RightMostObjectToDraw = CurrentHorizontalPosition;
-            }
-
             //Prepare next iteration of the loop
             CurrentHorizontalPosition += HorizontalSpacing;
             index++;
         }
 
         //Camera data
+        float zoomFactor = TemporaryObjectCoordinatesToZoomFactor * (HorizontalNeededSpace + 2 * HorizontalSpacing);
+        if (zoomFactor > MaxAskedZoom) { MaxAskedZoom = zoomFactor; }
         FollowingCamera.GetComponent<CameraFollow>().SetTarget(
             new Vector3(0, CurrentVerticalPosition, -20),
-            TemporaryObjectCoordinatesToZoomFactor * (HorizontalNeededSpace + 2 * HorizontalSpacing),
+            zoomFactor,
             TimeBetweenRows);
 
         //Prepare next row
