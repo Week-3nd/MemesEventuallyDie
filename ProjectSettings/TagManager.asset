@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Profiles
+    uniqueID: 4213287385
+    locked: 0

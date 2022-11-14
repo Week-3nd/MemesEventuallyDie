@@ -262,6 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5646957688983743432}
   - component: {fileID: 9161584437879381822}
+  - component: {fileID: 6556108430582735180}
+  - component: {fileID: 4295707581141793727}
   m_Layer: 0
   m_Name: UserTreeProfile
   m_TagString: Untagged
@@ -326,8 +328,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -81679911
+  m_SortingLayer: 1
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 37a50fa30811c5e4dbdddd513a07fe88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -340,6 +342,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6556108430582735180
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686656742560006060}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.7
+--- !u!114 &4295707581141793727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686656742560006060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be46bdb2893409e459ad135886ada915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SweepingInTime: 0.1
 --- !u!1 &8411738739802460448
 GameObject:
   m_ObjectHideFlags: 0

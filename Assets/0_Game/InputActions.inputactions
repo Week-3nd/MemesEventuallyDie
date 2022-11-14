@@ -1,0 +1,34 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Action map",
+            "id": "98b9b77d-541e-413e-aed0-3507ddcdd804",
+            "actions": [
+                {
+                    "name": "DragAndDrop",
+                    "type": "Button",
+                    "id": "4053af27-834a-4883-bfd8-561f9bc9761d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c60a956-e568-445e-9eee-5489a567f2f6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndDrop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
