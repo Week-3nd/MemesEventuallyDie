@@ -1,19 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UnenmployedFans : MonoBehaviour
 {
+    // game logic
     private List<TreeNode> AvailableUsers; // utilisateurs affectés à cette tâche
     public GameObject userProfile; // référence vers le prefab de user
     private SceneToSceneDataKeeper dataKeeper;
-    public GameObject[] userSlots; // emplacements dans le monde pour aligner les nouveaux users
+    //public GameObject[] userSlots; // emplacements dans le monde pour aligner les nouveaux users
+
+    // Afficher les fans disponibles sur une ligne
+    private Vector3[] fansPositions;
+    //public GameObject fanPositionsOrigin;
+    public float fanSpacing = 5.0f;
+    public int fanMaxAmountToDisplay;
+    private int overflowingFanAmount = 0;
+    public GameObject OverFlowFansObject;
 
     public Sprite[] ProfilePictures;
     public Color[] ProfilePictureBorderColors;
 
+
+
     // Start is called before the first frame update
     void Start()
+    {
+        fansPositions = new Vector3[fanMaxAmountToDisplay];
+        PrintAvailableFans();
+    }
+
+
+    private void PrintAvailableFans()
     {
         // load all fans and remove those taken in other places
         dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
@@ -26,26 +45,49 @@ public class UnenmployedFans : MonoBehaviour
             }
         }
 
+        //generate fans positions
+        for (int index = 0; index < fanMaxAmountToDisplay; index++)
+        {
+            fansPositions[index] = transform.position + new Vector3((index * fanSpacing),0,0);
+            //Debug.Log("Generated fan position at : " + fansPositions[index]);
+        }
+
+        //print fans from the list
         int i = 0;
         foreach (TreeNode user in AvailableUsers)
         {
-            if (i >= userSlots.Length)
+            if (i >= fanMaxAmountToDisplay)
             {
-                Debug.Log("Pas la place lul");
-                break;
+                //Debug.Log("Pas la place lul");
+                overflowingFanAmount++;
             }
-            GameObject UserProfile = Instantiate(
-                userProfile,
-                userSlots[i].transform.position,
-                Quaternion.identity,
-                this.transform);
+            else
+            {
+                GameObject UserProfile = Instantiate(
+                    userProfile,
+                    fansPositions[i],
+                    Quaternion.identity,
+                    this.transform);
 
-            //Assign TreeNode information
-            user.AssociatedGameObject = UserProfile;
-            UserProfile.GetComponent<SpriteRenderer>().sprite = ProfilePictures[user.ProfilePicture];
-            UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
-            UserProfile.GetComponent<CircleCollider2D>().enabled = true;
+                //Assign TreeNode information
+                user.AssociatedGameObject = UserProfile;
+                UserProfile.GetComponent<SpriteRenderer>().sprite = ProfilePictures[user.ProfilePicture];
+                UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+                UserProfile.GetComponent<CircleCollider2D>().enabled = true;
+            }
+
             i++;
+        }
+
+        // Add a number showing how many fans are not displayed
+        if (overflowingFanAmount>0)
+        {
+            OverFlowFansObject.SetActive(true);
+            OverFlowFansObject.GetComponentInChildren<TextMesh>().text = "+" + overflowingFanAmount;
+        }
+        else
+        {
+            OverFlowFansObject.SetActive(false);
         }
     }
 
@@ -53,5 +95,18 @@ public class UnenmployedFans : MonoBehaviour
     void Update()
     {
         
+         /*
+        //Draw 2 crossing lines where each spot is
+        Vector3 topLeft = new Vector3(      -0.5f * fanSpacing,     0.5f * fanSpacing);
+        Vector3 bottomLeft = new Vector3(   -0.5f * fanSpacing,     -0.5f * fanSpacing);
+        Vector3 topRight = new Vector3(     0.5f * fanSpacing,      0.5f * fanSpacing);
+        Vector3 bottomRight = new Vector3(  0.5f * fanSpacing,      -0.5f * fanSpacing);
+
+        foreach (Vector3 coord in fansPositions)
+        {
+            Debug.DrawLine(coord + topLeft, coord + bottomRight,Color.yellow);
+            Debug.DrawLine(coord + bottomLeft, coord + topRight, Color.yellow);
+        }
+        // */
     }
 }
