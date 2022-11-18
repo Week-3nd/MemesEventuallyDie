@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GameDisplay_SocialNetworkManager : MonoBehaviour
 {
@@ -149,6 +150,10 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             if (currentNode.isFan)
             {
                 NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+            }
+            if (currentNode.ShareState == 2)
+            {
+                NewNode.GetComponentInChildren<VisualEffect>().enabled = true;
             }
 
             //Extract Node score information
