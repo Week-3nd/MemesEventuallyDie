@@ -22,12 +22,20 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     [Tooltip("NumberOfFailedNodesBeforeStoppingEvaluation")]
     public int AuthorizedFails = 10;
 
-    public Tree SocialNetwork = new Tree();
 
+    //Force until X sharers in a given gen
+    [Tooltip("How many first generations to prevent from dying")]
+    public int InvincibleGenerations = 5;
+
+    //Tree
+    public Tree SocialNetwork = new Tree();
+    //Gen
     private bool canContinue = true;
 
     //Data management
     public SceneToSceneDataKeeper dataKeeper;
+
+
 
     private void Start()
     {
@@ -37,14 +45,23 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     public void EvaluateNetwork()
     {
+        //generate tree
         while (NumberOfFailedNodes < AuthorizedFails && canContinue)
         {
             //canContinue = HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]);
             AddDepthRow();
+            
+            
+            if (SocialNetwork.DepthLists.Count <= InvincibleGenerations && !HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]))
+            {
+                int undeadNodeIndex = Random.Range(0, SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1].Count);
+                SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1][undeadNodeIndex].ShareState = 2;
+            }
+
             canContinue = HasWinsInRow(SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1]);
-            //Debug.Log("Row : " + SocialNetwork.DepthLists[SocialNetwork.DepthLists.Count - 1] + " | Can continue : " + canContinue);
         }
 
+        //once tree generated, output also other lists
         List<TreeNode> NewFans = new List<TreeNode>();
         foreach (TreeNode node in SocialNetwork.treeNodesList)
         {

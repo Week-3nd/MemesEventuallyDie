@@ -540,11 +540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SuccessProbability: 0.35
+  SuccessProbability: 0.33333334
   FanProbabilityIfSuccess: 0.05
   FailureProbability: 0.05
   TentativesOfReshare: 3
-  AuthorizedFails: 50
+  AuthorizedFails: 5
+  InvincibleGenerations: 2
   dataKeeper: {fileID: 2080246563}
 --- !u!114 &659073786
 MonoBehaviour:
