@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Increase share probability
       objectReference: {fileID: 0}
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
 --- !u!4 &15112055 stripped
@@ -1042,6 +1046,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Increase sharer's turning into a fan probability
       objectReference: {fileID: 0}
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
 --- !u!4 &741388765 stripped
@@ -1299,9 +1307,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tolerate more faithblog posts
       objectReference: {fileID: 0}
-    - target: {fileID: 5829848216223913371, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
@@ -1805,6 +1813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AugmentFakeUI (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
 --- !u!4 &1598854005 stripped
@@ -2298,9 +2310,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: Supply additionel memes to choose from
       objectReference: {fileID: 0}
-    - target: {fileID: 5829848216223913371, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
@@ -2694,8 +2706,8 @@ PrefabInstance:
       propertyPath: m_Text
       value: (May) share your meme at start
       objectReference: {fileID: 0}
-    - target: {fileID: 5829848216223913371, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: AugmentIndex
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

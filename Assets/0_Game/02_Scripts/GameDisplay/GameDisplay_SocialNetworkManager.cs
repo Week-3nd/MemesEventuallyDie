@@ -145,16 +145,19 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
 
             //Assign TreeNode information
             currentNode.AssociatedGameObject = NewNode;
-            NewNode.GetComponent<SpriteRenderer>().sprite = ProfilePictures[currentNode.ProfilePicture];
+            NewNode.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[currentNode.ProfilePicture];
             NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
+            NewNode.GetComponent<CircleCollider2D>().enabled = false;
             if (currentNode.isFan)
             {
                 NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
             }
+             /*
             if (currentNode.ShareState == 2)
             {
                 NewNode.GetComponentInChildren<VisualEffect>().enabled = true;
             }
+            // */
 
             //Extract Node score information
             if (currentNode.ShareState == 2)

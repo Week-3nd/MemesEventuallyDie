@@ -70,6 +70,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 NewFans.Add(node);
             }
         }
+        dataKeeper.InitializeCommunityLists();
         dataKeeper.AddFansToList(NewFans);
 
         List<TreeNode> Sharers = new List<TreeNode>();

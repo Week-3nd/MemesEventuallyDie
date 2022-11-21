@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SceneToSceneDataKeeper : MonoBehaviour
 {
@@ -33,24 +33,61 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     public void AddFansToList(List<TreeNode> NewFans)
     {
         FansList.AddRange(NewFans);
+        CommunityLists[0].AddRange(NewFans);
     }
 
 
 
-    static private List<List<TreeNode>> CommunityLists = new List<List<TreeNode>>();
+    static private List<List<TreeNode>> CommunityLists;
+
+    // Listes : (augments as of Y22 M11 D21)
+    // 0 = unemployed
+    // 1 = Augment 1 (Early share squad)
+    // 2 = Augment 2 (Memers committee)
+    // 3 = Augment 3 (Conving stans)
+    // 4 = Augment 4 (cringe Yogis)
+    // 5 = Augment 5 (Meme analysts)
+    // 6 = Augment 6 (clickbait specialists)
+
+    public void InitializeCommunityLists()
+    {
+        if (CommunityLists == null) // initialization
+        {
+            CommunityLists = new List<List<TreeNode>>();
+            for (int i = 0; i <= 6; i++)
+            {
+                CommunityLists.Add(new List<TreeNode>());
+                //Debug.Log(i);
+            }
+        }
+    }
 
     public List<List<TreeNode>> GetCommunityLists()
     {
         return CommunityLists;
     }
-    public List<TreeNode> GetSpecificCommunityList(int index)
+    public List<TreeNode> GetSpecificCommunityList(int index) // index = augment index
     {
         return CommunityLists[index];
     }
 
-    public void AddUserToCommunityList(TreeNode user, int ListIndex)
+    public void MoveUserInCommunityList(TreeNode user, int DestinationListIndex)
     {
-        CommunityLists[ListIndex].Add(user);
+        foreach (List<TreeNode> list in CommunityLists)
+        {
+            list.Remove(user);
+        }
+        CommunityLists[DestinationListIndex].Add(user);
     }
 
+
+    public void PrintCommunityListsAmounts()
+    {
+        int i = 0;
+        foreach (List<TreeNode> list in CommunityLists)
+        {
+            Debug.Log("In list " + i + " . " + CommunityLists[i].Count + " users!");
+            i++;
+        }
+    }
 }

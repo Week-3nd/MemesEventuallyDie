@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Augment_Generic : MonoBehaviour
 {
+    // cette classe aurait dû être utilisée mais en fait a été oubliée
+
+
+
+
+
+    /*
+    
     private List<TreeNode> AffectedUsers; // utilisateurs affectés à cette tâche
     public int ListIndex; // emplacement dans le datakeeper de la liste d'affected users
     public GameObject userProfile; // référence vers le prefab de user
@@ -29,7 +37,8 @@ public class Augment_Generic : MonoBehaviour
         }
     }
 
-    private void AddUser(TreeNode user)
+
+    private void AddUser(TreeNode user) // ???
     {
         if (userSlots.Length < AffectedUsers.Count)
         {
@@ -48,4 +57,5 @@ public class Augment_Generic : MonoBehaviour
     {
         
     }
+    */
 }

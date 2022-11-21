@@ -28,14 +28,20 @@ public class UnenmployedFans : MonoBehaviour
     void Start()
     {
         fansPositions = new Vector3[fanMaxAmountToDisplay];
+        dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
+        dataKeeper.InitializeCommunityLists();
+        //dataKeeper.PrintCommunityListsAmounts();
         PrintAvailableFans();
     }
 
 
     private void PrintAvailableFans()
     {
-        // load all fans and remove those taken in other places
-        dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
+        AvailableUsers = dataKeeper.GetSpecificCommunityList(0);
+
+
+        //former implementation : load all fans and remove those taken in other places
+        /*
         AvailableUsers = dataKeeper.GetFansList();
         foreach (List<TreeNode> List in dataKeeper.GetCommunityLists())
         {
@@ -44,6 +50,7 @@ public class UnenmployedFans : MonoBehaviour
                 AvailableUsers.Remove(user);
             }
         }
+        // */
 
         //generate fans positions
         for (int index = 0; index < fanMaxAmountToDisplay; index++)
@@ -71,9 +78,10 @@ public class UnenmployedFans : MonoBehaviour
 
                 //Assign TreeNode information
                 user.AssociatedGameObject = UserProfile;
-                UserProfile.GetComponent<SpriteRenderer>().sprite = ProfilePictures[user.ProfilePicture];
+                UserProfile.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[user.ProfilePicture];
                 UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
                 UserProfile.GetComponent<CircleCollider2D>().enabled = true;
+                UserProfile.GetComponent<AssociatedTreeNode>().associatedNode = user;
             }
 
             i++;
@@ -88,6 +96,25 @@ public class UnenmployedFans : MonoBehaviour
         else
         {
             OverFlowFansObject.SetActive(false);
+        }
+    }
+
+    public void ReorderFans()
+    {
+
+        int i = 0;
+        foreach (TreeNode user in AvailableUsers)
+        {
+            if (i >= fanMaxAmountToDisplay)
+            {
+                //Debug.Log("Pas la place lul");
+                overflowingFanAmount++;
+            }
+            else
+            {
+                user.AssociatedGameObject.transform.position = fansPositions[i];
+            }
+            i++;
         }
     }
 

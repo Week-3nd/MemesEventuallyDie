@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class DragAndDrop : MonoBehaviour
@@ -11,10 +8,21 @@ public class DragAndDrop : MonoBehaviour
     private bool isSweeping = false;
     private Vector3 onMouseDownDeltaToMouse = new Vector3();
     private Camera theOneAndOnlyCamera;
+    private Vector3 mouseWorldPosition = new Vector3();
+    private bool isOnAugment = false;
+    private UnenmployedFans unenmployedFansScript;
+
+    //
+    public GameObject ProfileToMove;
+    private Vector3 ProfileTargetPosition;
+    private TransformHolder transformHolderReference;
+    private SceneToSceneDataKeeper dataKeeper;
 
     private void Start()
     {
         theOneAndOnlyCamera = FindObjectOfType<Camera>();
+        unenmployedFansScript = FindObjectOfType<UnenmployedFans>();
+        dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
     }
 
     private void OnMouseDown()
@@ -26,14 +34,11 @@ public class DragAndDrop : MonoBehaviour
         onMouseDownDeltaToMouse = Mouse2DWorldPosition - this.transform.position;
     }
 
-    private void OnMouseUp()
-    {
-        
-    }
+
 
     private void OnMouseDrag()
     {
-        Vector3 mouseWorldPosition = theOneAndOnlyCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mouseWorldPosition = theOneAndOnlyCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector3 newObjectPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);
 
         if (isSweeping)
@@ -43,7 +48,19 @@ public class DragAndDrop : MonoBehaviour
         else
         {
             transform.position = newObjectPosition;
+            if (isOnAugment)
+            {
+                ProfileToMove.transform.position = ProfileTargetPosition;
+            }
         }
+
+        /*
+        if (isOnAugment)
+        {
+
+        }
+        */
+
     }
 
     private void Update()
@@ -55,6 +72,47 @@ public class DragAndDrop : MonoBehaviour
             {
                 isSweeping = false;
             }
-        } 
+        }
     }
+
+    private void OnTriggerStay2D(Collider2D augmentCollider)
+    {
+        isOnAugment = true;
+        transformHolderReference = augmentCollider.GetComponentInChildren<TransformHolder>();
+        int targetSlot = transformHolderReference.usedSlots;
+        Vector3 coordToDisplayFanIn = transformHolderReference.TransformList[targetSlot].transform.position;
+        ProfileTargetPosition = new Vector3(coordToDisplayFanIn.x, coordToDisplayFanIn.y, transform.position.z);
+        //Debug.Log("Is in trigger");
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isOnAugment = false;
+
+        ProfileToMove.transform.position = transform.position;
+    }
+
+    private void OnMouseUp()
+    {
+        if (isOnAugment)
+        {
+            transform.position = ProfileTargetPosition;
+            transformHolderReference.usedSlots += 1;
+            ProfileToMove.transform.position = transform.position;
+            dataKeeper.MoveUserInCommunityList(GetComponent<AssociatedTreeNode>().associatedNode, transformHolderReference.AugmentIndex);
+            //dataKeeper.PrintCommunityListsAmounts();
+        }
+        else
+        {
+            //remettre à sa place dans les unemployed fans
+            if (unenmployedFansScript != null)
+            {
+                unenmployedFansScript.ReorderFans();
+            }
+        }
+
+
+
+    }
+
 }

@@ -33,6 +33,9 @@ public class TreeNode
     //Descending tree function
     private List<TreeNode> Descendants = new List<TreeNode>();
 
+    //Augments UI
+    
+
 
     public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold, float FanChance)
     {

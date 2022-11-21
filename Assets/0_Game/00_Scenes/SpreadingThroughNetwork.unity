@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SuccessProbability: 0.34
-  FanProbabilityIfSuccess: 0.05
+  FanProbabilityIfSuccess: 1
   FailureProbability: 0.05
   TentativesOfReshare: 3
   AuthorizedFails: 5
