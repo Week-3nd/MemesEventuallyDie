@@ -22,6 +22,8 @@ public class UnenmployedFans : MonoBehaviour
     public Sprite[] ProfilePictures;
     public Color[] ProfilePictureBorderColors;
 
+    public TransformHolder[] AugmentsUI;
+
 
 
     // Start is called before the first frame update
@@ -32,12 +34,13 @@ public class UnenmployedFans : MonoBehaviour
         dataKeeper.InitializeCommunityLists();
         //dataKeeper.PrintCommunityListsAmounts();
         PrintAvailableFans();
+        //ReorderFans();
     }
 
 
     private void PrintAvailableFans()
     {
-        AvailableUsers = dataKeeper.GetSpecificCommunityList(0);
+        AvailableUsers = dataKeeper.GetFansList();
 
 
         //former implementation : load all fans and remove those taken in other places
@@ -61,60 +64,99 @@ public class UnenmployedFans : MonoBehaviour
 
         //print fans from the list
         int i = 0;
+        overflowingFanAmount = 0;
         foreach (TreeNode user in AvailableUsers)
         {
+            Vector3 spawnPosition = new();
             if (i >= fanMaxAmountToDisplay)
             {
                 //Debug.Log("Pas la place lul");
                 overflowingFanAmount++;
+                spawnPosition = OverFlowFansObject.transform.position; // overflowing fans are spawned under the icon showing they are too many
             }
             else
             {
-                GameObject UserProfile = Instantiate(
+                spawnPosition = fansPositions[i];
+            }
+            
+            //instantiante object
+            GameObject UserProfile = Instantiate(
                     userProfile,
-                    fansPositions[i],
+                    spawnPosition,
                     Quaternion.identity,
                     this.transform);
 
-                //Assign TreeNode information
-                user.AssociatedGameObject = UserProfile;
-                UserProfile.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[user.ProfilePicture];
-                UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
-                UserProfile.GetComponent<CircleCollider2D>().enabled = true;
-                UserProfile.GetComponent<AssociatedTreeNode>().associatedNode = user;
-            }
+            //Assign TreeNode information
+            user.AssociatedGameObject = UserProfile;
+            UserProfile.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[user.ProfilePicture];
+            UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+            UserProfile.GetComponent<CircleCollider2D>().enabled = true;
+            UserProfile.GetComponent<AssociatedTreeNode>().associatedNode = user;
+
 
             i++;
         }
+        ReorderFans();
 
-        // Add a number showing how many fans are not displayed
-        if (overflowingFanAmount>0)
-        {
-            OverFlowFansObject.SetActive(true);
-            OverFlowFansObject.GetComponentInChildren<TextMesh>().text = "+" + overflowingFanAmount;
-        }
-        else
-        {
-            OverFlowFansObject.SetActive(false);
-        }
     }
 
     public void ReorderFans()
     {
+        
+        
+        for (int index = 1; index <= 6; index++)
+        {
+            int j = 0;
+            foreach (TreeNode fanNode in dataKeeper.GetSpecificCommunityList(index))
+            {
+                fanNode.AssociatedGameObject.transform.position = AugmentsUI[index-1].TransformList[j].transform.position;
+                j++;
+            }
+        }
+
+        
+        
+        
+        
+        
+        // unemployed users
+        AvailableUsers = dataKeeper.GetSpecificCommunityList(0);
 
         int i = 0;
+        overflowingFanAmount = 0;
+
         foreach (TreeNode user in AvailableUsers)
         {
             if (i >= fanMaxAmountToDisplay)
             {
                 //Debug.Log("Pas la place lul");
                 overflowingFanAmount++;
+                user.AssociatedGameObject.transform.position = OverFlowFansObject.transform.position;
             }
             else
             {
                 user.AssociatedGameObject.transform.position = fansPositions[i];
             }
             i++;
+        }
+
+
+
+        UpdateOverflowingFansDisplay();
+    }
+
+
+    private void UpdateOverflowingFansDisplay()
+    {
+        // Add a number showing how many fans are not displayed
+        if (overflowingFanAmount > 0)
+        {
+            OverFlowFansObject.SetActive(true);
+            OverFlowFansObject.GetComponentInChildren<TextMeshPro>().text = "+" + overflowingFanAmount;
+        }
+        else
+        {
+            OverFlowFansObject.SetActive(false);
         }
     }
 

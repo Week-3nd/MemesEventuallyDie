@@ -18,6 +18,9 @@ public class DragAndDrop : MonoBehaviour
     private TransformHolder transformHolderReference;
     private SceneToSceneDataKeeper dataKeeper;
 
+    // Drag and Drop visual feedbacks
+    public GameObject DragDropFeedback;
+
     private void Start()
     {
         theOneAndOnlyCamera = FindObjectOfType<Camera>();
@@ -27,11 +30,15 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //transition towards mouse
         SweepingTimer = 0.0f;
         isSweeping = true;
         Vector3 mouse3DWorldPosition = theOneAndOnlyCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector3 Mouse2DWorldPosition = new Vector3(mouse3DWorldPosition.x, mouse3DWorldPosition.y, transform.position.z);
         onMouseDownDeltaToMouse = Mouse2DWorldPosition - this.transform.position;
+
+        // move user from augment to unemployed
+        dataKeeper.MoveUserInCommunityList(this.GetComponent<AssociatedTreeNode>().associatedNode, 0);
     }
 
 
@@ -51,16 +58,13 @@ public class DragAndDrop : MonoBehaviour
             if (isOnAugment)
             {
                 ProfileToMove.transform.position = ProfileTargetPosition;
+                DragDropFeedback.SetActive(true);
+            }
+            else
+            {
+                DragDropFeedback.SetActive(false);
             }
         }
-
-        /*
-        if (isOnAugment)
-        {
-
-        }
-        */
-
     }
 
     private void Update()
@@ -79,8 +83,16 @@ public class DragAndDrop : MonoBehaviour
     {
         isOnAugment = true;
         transformHolderReference = augmentCollider.GetComponentInChildren<TransformHolder>();
-        int targetSlot = transformHolderReference.usedSlots;
-        Vector3 coordToDisplayFanIn = transformHolderReference.TransformList[targetSlot].transform.position;
+        int targetSlot = transformHolderReference.GetUsedSlots();
+        Vector3 coordToDisplayFanIn = new();
+        if (transformHolderReference.TransformList.Count > targetSlot)
+        {
+            coordToDisplayFanIn = transformHolderReference.TransformList[targetSlot].transform.position;
+        }
+        else
+        {
+            coordToDisplayFanIn = transform.position;
+        }
         ProfileTargetPosition = new Vector3(coordToDisplayFanIn.x, coordToDisplayFanIn.y, transform.position.z);
         //Debug.Log("Is in trigger");
     }
@@ -88,30 +100,36 @@ public class DragAndDrop : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         isOnAugment = false;
-
         ProfileToMove.transform.position = transform.position;
     }
 
     private void OnMouseUp()
     {
-        if (isOnAugment)
+        DragDropFeedback.SetActive(false);
+        if (isOnAugment && transformHolderReference.GetUsedSlots() < transformHolderReference.TransformList.Count)
         {
             transform.position = ProfileTargetPosition;
-            transformHolderReference.usedSlots += 1;
+            //transformHolderReference.usedSlots += 1;
             ProfileToMove.transform.position = transform.position;
             dataKeeper.MoveUserInCommunityList(GetComponent<AssociatedTreeNode>().associatedNode, transformHolderReference.AugmentIndex);
             //dataKeeper.PrintCommunityListsAmounts();
         }
         else
         {
-            //remettre à sa place dans les unemployed fans
-            if (unenmployedFansScript != null)
-            {
-                unenmployedFansScript.ReorderFans();
-            }
+            isOnAugment = false;
+            ProfileToMove.transform.position = transform.position;
+            dataKeeper.MoveUserInCommunityList(GetComponent<AssociatedTreeNode>().associatedNode, 0);
         }
 
+        //remettre à sa place dans les unemployed fans
+        if (unenmployedFansScript != null)
+        {
+            unenmployedFansScript.ReorderFans();
+        }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
     }
 
