@@ -12,6 +12,6 @@ public class FansDisplay : MonoBehaviour
     void Start()
     {
         localFansList = dataKeeper.GetFansList();
-        this.GetComponent<TextMeshProUGUI>().text = "Fans : "+localFansList.Count.ToString();
+        this.GetComponent<TextMeshProUGUI>().text = "<size=14><b>" + localFansList.Count.ToString()+ "</b></size> total fans";
     }
 }

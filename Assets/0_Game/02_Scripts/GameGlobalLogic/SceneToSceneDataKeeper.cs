@@ -9,10 +9,10 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     /// </summary>
     static private int DayIndex = 0;
 
-    public int NextDay()
+    public void NextDay()
     {
         DayIndex++;
-        return DayIndex;
+        //return DayIndex;
     }
     public int GetCurrentDay()
     {

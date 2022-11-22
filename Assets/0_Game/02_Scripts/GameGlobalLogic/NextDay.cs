@@ -10,7 +10,6 @@ public class NextDay : MonoBehaviour
     
     void Start()
     {
-        int dayindex = DataKeeperReference.NextDay();
-        this.GetComponent<TextMeshProUGUI>().text = new string("Day " + dayindex.ToString());
+        this.GetComponent<TextMeshProUGUI>().text = new string("Day <size=14><b>" + DataKeeperReference.GetCurrentDay().ToString())+ "</b></size>";
     }
 }
