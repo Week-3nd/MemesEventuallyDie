@@ -23,6 +23,7 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     public List<Vector2> clickbaitSpecialists = new List<Vector2>();
 
 
+
     public int GetBotsAmount(int numberOfBotDevFans)
     {
         foreach (Vector2Int currentThreshold in botsDevelopersInfluence)
@@ -36,8 +37,7 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
                 return botsDevelopersInfluence[botsDevelopersInfluence.IndexOf(currentThreshold) - 1].y;
             }
         }
-        Debug.Log("Non-existing bots developers fan amount asked");
-        return 0;
+        return botsDevelopersInfluence[botsDevelopersInfluence.Count - 1].y;
     }
 
 
@@ -54,8 +54,7 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
                 return memersCommittee[memersCommittee.IndexOf(currentThreshold) - 1].y;
             }
         }
-        Debug.Log("Non-existing memers committee amount asked");
-        return 0;
+        return memersCommittee[memersCommittee.Count - 1].y;
     }
 
 
@@ -72,8 +71,41 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
                 return convincingStans[convincingStans.IndexOf(currentThreshold) - 1].y;
             }
         }
-        Debug.Log("Non-existing convincing stans amount asked");
-        return 0f;
+        return convincingStans[convincingStans.Count - 1].y;
+    }
+
+
+    public int GetAuthorizedFailsAmount(int numberOfCringeYogis)
+    {
+        foreach (Vector2Int currentThreshold in cringeYogisInfluence)
+        {
+            if (currentThreshold.x == numberOfCringeYogis)
+            {
+                return currentThreshold.y;
+            }
+            if (currentThreshold.x > numberOfCringeYogis)
+            {
+                return cringeYogisInfluence[cringeYogisInfluence.IndexOf(currentThreshold) - 1].y;
+            }
+        }
+        return cringeYogisInfluence[cringeYogisInfluence.Count - 1].y;
+    }
+
+
+    public int GetRevealedInfosAmount(int numberOfMemeAnalysts)
+    {
+        foreach (Vector2Int currentThreshold in memeAnalysts)
+        {
+            if (currentThreshold.x == numberOfMemeAnalysts)
+            {
+                return currentThreshold.y;
+            }
+            if (currentThreshold.x > numberOfMemeAnalysts)
+            {
+                return memeAnalysts[memeAnalysts.IndexOf(currentThreshold) - 1].y;
+            }
+        }
+        return memeAnalysts[memeAnalysts.Count - 1].y;
     }
 
 
@@ -90,7 +122,6 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
                 return clickbaitSpecialists[clickbaitSpecialists.IndexOf(currentThreshold) - 1].y;
             }
         }
-        Debug.Log("Non-existing clickbait specialists amount asked");
-        return 0f;
+        return clickbaitSpecialists[clickbaitSpecialists.Count - 1].y;
     }
 }

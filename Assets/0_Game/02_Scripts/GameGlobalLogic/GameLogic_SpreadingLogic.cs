@@ -9,7 +9,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     private float SuccessProbability = 0.32f;
     private float NodeSuccessThreshold = 0.9f;
     [Tooltip("Value between 0 and 1. If node is success, then there is this chance of it transforming into a fan.")]
-    public float FanProbabilityIfSuccess = 0.15f;
+    private float FanProbabilityIfSuccess = 0.15f;
 
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme not shared. If lower : meme shared on facebook.")]
     public float FailureProbability = 0.05f;
@@ -20,12 +20,19 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     public int TentativesOfReshare = 4;
 
     [Tooltip("NumberOfFailedNodesBeforeStoppingEvaluation")]
-    public int AuthorizedFails = 10;
+    private int AuthorizedFails = 10;
 
+    [Tooltip("FOR BOTS. For each successful share, number of times we attempt to share again.")]
+    public int BotTentativesOfReshare = 2;
+    private int firstGenBotsAmount = 0;
 
     //Force until X sharers in a given gen
     [Tooltip("How many first generations to prevent from dying")]
     public int InvincibleGenerations = 5;
+
+    
+
+
 
     //Tree
     public Tree SocialNetwork = new Tree();
@@ -42,7 +49,14 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     {
         //taking data from external influences
         SuccessProbability = influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count);
-        Debug.Log("Success probability : "+SuccessProbability);
+        AuthorizedFails = influence.GetAuthorizedFailsAmount(dataKeeper.GetSpecificCommunityList(4).Count);
+        FanProbabilityIfSuccess = influence.GetFanProbability(dataKeeper.GetSpecificCommunityList(3).Count);
+        firstGenBotsAmount = influence.GetBotsAmount(dataKeeper.GetSpecificCommunityList(1).Count);
+        Debug.Log("Share probability : " + SuccessProbability
+            + " | Max faithblog posts : " + AuthorizedFails
+            + " | Fan probabilty upon share : " + FanProbabilityIfSuccess
+            + " | First gen bots : " + firstGenBotsAmount);
+
 
 
         //transforming data in usable information
@@ -52,6 +66,8 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     public void EvaluateNetwork()
     {
+        AddFirstRow();
+        
         //generate tree
         while (NumberOfFailedNodes < AuthorizedFails && canContinue)
         {
@@ -111,7 +127,13 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
         {
             if (currentNode.ShareState == 2)
             {
-                for (int i = 0; i < TentativesOfReshare; i++)
+                int reshareAttempts = TentativesOfReshare;
+                if (currentNode.isBot)
+                {
+                    reshareAttempts = BotTentativesOfReshare;
+                }
+
+                for (int i = 0; i < reshareAttempts; i++)
                 {
                     TreeNode ChildNode = SocialNetwork.AddChild(currentNode);
                     ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
@@ -124,5 +146,33 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
             }
         }
         //Debug.Log("New depth : " + SocialNetwork.DepthLists.Count);
+    }
+
+    private void AddFirstRow()
+    {
+        TreeNode root = SocialNetwork.root;
+
+        for (int i = 0; i < firstGenBotsAmount; i++)
+        {
+            TreeNode ChildNode = SocialNetwork.AddChild(root);
+            ChildNode.isBot = true;
+            ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
+            //handle the stopping code (the scoring isnt needed here)
+            if (ChildNode.ShareState == 0)
+            {
+                NumberOfFailedNodes++;
+            }
+        }
+
+        for (int i = 0; i < TentativesOfReshare; i++)
+        {
+            TreeNode ChildNode = SocialNetwork.AddChild(root);
+            ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
+            //handle the stopping code (the scoring isnt needed here)
+            if (ChildNode.ShareState == 0)
+            {
+                NumberOfFailedNodes++;
+            }
+        }
     }
 }

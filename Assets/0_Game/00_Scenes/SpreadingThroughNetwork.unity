@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &189966614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 659073784}
   - component: {fileID: 659073785}
   - component: {fileID: 659073786}
+  - component: {fileID: 659073787}
   m_Layer: 0
   m_Name: SpreadingManager
   m_TagString: Untagged
@@ -552,10 +553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FanProbabilityIfSuccess: 0.05
   FailureProbability: 0.05
   TentativesOfReshare: 3
-  AuthorizedFails: 10
   InvincibleGenerations: 4
   dataKeeper: {fileID: 2080246563}
   influence: {fileID: 2080246564}
@@ -586,6 +585,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8aedc79e00e265499a1b06ca27f79e0, type: 3}
   - {fileID: 21300000, guid: fdb394eedc2b6f64ba5bc472d5a6aee0, type: 3}
   - {fileID: 21300000, guid: fed212ed85ec7ec438dad2855fc12b11, type: 3}
+  - {fileID: 21300000, guid: 7e166aff59a156745b60cb4724e5d99a, type: 3}
   ProfilePictureBorderColors:
   - {r: 0, g: 0.11850643, b: 1, a: 1}
   - {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
@@ -596,6 +596,22 @@ MonoBehaviour:
   ShareScore: 1
   FanScore: 3
   ScoreDisplayUI: {fileID: 1038196480}
+--- !u!114 &659073787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659073782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207deae06889b4148a33ce4eda815e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spreadingLogic: {fileID: 659073785}
+  visualManager: {fileID: 659073786}
+  scoreCanvas: {fileID: 486839434}
+  dataKeeper: {fileID: 2080246563}
 --- !u!1 &758397479
 GameObject:
   m_ObjectHideFlags: 0

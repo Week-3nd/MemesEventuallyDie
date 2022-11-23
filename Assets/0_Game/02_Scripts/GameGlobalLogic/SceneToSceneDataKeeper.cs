@@ -22,12 +22,6 @@ public class SceneToSceneDataKeeper : MonoBehaviour
 
 
 
-
-
-
-
-
-
     /// <summary>
     /// List of ALL fans, wether they are available or tasked for something
     /// </summary>
@@ -46,12 +40,9 @@ public class SceneToSceneDataKeeper : MonoBehaviour
 
 
 
-
-
-
-
-
-
+    /// <summary>
+    /// Community lists contains all fans and their activity. A fan can only be in one of the lists at a time.
+    /// </summary>
     static private List<List<TreeNode>> CommunityLists;
 
     // Listes : (augments as of Y22 M11 D21)
@@ -80,6 +71,7 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     {
         return CommunityLists;
     }
+
     public List<TreeNode> GetSpecificCommunityList(int index) // index = augment index
     {
         return CommunityLists[index];
@@ -94,7 +86,6 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         CommunityLists[DestinationListIndex].Add(user);
     }
 
-
     public void PrintCommunityListsAmounts()
     {
         int i = 0;
@@ -105,6 +96,4 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         }
     }
 
-
-    
 }

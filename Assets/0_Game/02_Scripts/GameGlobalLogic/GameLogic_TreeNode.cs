@@ -19,6 +19,7 @@ public class TreeNode
     //Gameplay
     public int ShareState = 0; // 0 = facebook | 1 = nothing | 2 = shared
     public bool isFan = false;
+    public bool isBot = false;
     public int SpecialEventIndexInfluence = 0;
     //Fluff
     public string Username;
@@ -48,17 +49,28 @@ public class TreeNode
         {
             ShareState = 2;
             float fanRandom = Random.value;
-            if (fanRandom < FanChance)
+            if (fanRandom < FanChance && !isBot)
             {
-                isFan = true; ;
+                isFan = true;
             }
         }
         else
         {
             ShareState = 1;
         }
-        ProfilePicture = Random.Range(0, 5); //hardcodé pour le moment
+        
+        if (isBot)
+        {
+            ShareState = 2;
+            ProfilePicture = 5;
+        }
+        else
+        {
+            ProfilePicture = Random.Range(0, 5);
+        }
+        //hardcodé pour le moment
     }
+
 
     public int GetDepth()
     {
