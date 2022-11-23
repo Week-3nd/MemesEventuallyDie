@@ -552,13 +552,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SuccessProbability: 0.32
   FanProbabilityIfSuccess: 0.05
   FailureProbability: 0.05
   TentativesOfReshare: 3
-  AuthorizedFails: 50
+  AuthorizedFails: 10
   InvincibleGenerations: 4
   dataKeeper: {fileID: 2080246563}
+  influence: {fileID: 2080246564}
 --- !u!114 &659073786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,5 +1648,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22bbfab0c9eb59243ae18372d5a3c53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2080246564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3065144903998031592, guid: 7e46afcd75865444da2de1fc5d8eac51, type: 3}
+  m_PrefabInstance: {fileID: 2080246562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77541d1d87071840a44aab998fe35b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

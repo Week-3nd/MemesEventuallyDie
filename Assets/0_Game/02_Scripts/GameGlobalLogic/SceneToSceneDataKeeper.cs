@@ -21,6 +21,13 @@ public class SceneToSceneDataKeeper : MonoBehaviour
 
 
 
+
+
+
+
+
+
+
     /// <summary>
     /// List of ALL fans, wether they are available or tasked for something
     /// </summary>
@@ -35,6 +42,13 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         FansList.AddRange(NewFans);
         CommunityLists[0].AddRange(NewFans);
     }
+
+
+
+
+
+
+
 
 
 
@@ -90,4 +104,7 @@ public class SceneToSceneDataKeeper : MonoBehaviour
             i++;
         }
     }
+
+
+    
 }

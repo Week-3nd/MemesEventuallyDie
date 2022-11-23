@@ -6,7 +6,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 {
     // Network management
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme shared. If lower : meme not shared.")]
-    public float SuccessProbability = 0.2f;
+    private float SuccessProbability = 0.32f;
     private float NodeSuccessThreshold = 0.9f;
     [Tooltip("Value between 0 and 1. If node is success, then there is this chance of it transforming into a fan.")]
     public float FanProbabilityIfSuccess = 0.15f;
@@ -34,11 +34,18 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     //Data management
     public SceneToSceneDataKeeper dataKeeper;
+    public GameLogic_CommAndMemeInfluence influence;
 
 
 
     private void Start()
     {
+        //taking data from external influences
+        SuccessProbability = influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count);
+        Debug.Log("Success probability : "+SuccessProbability);
+
+
+        //transforming data in usable information
         NodeFailureThreshold = FailureProbability;
         NodeSuccessThreshold = 1 - SuccessProbability;
     }
@@ -70,7 +77,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 NewFans.Add(node);
             }
         }
-        dataKeeper.InitializeCommunityLists();
+        //dataKeeper.InitializeCommunityLists();
         dataKeeper.AddFansToList(NewFans);
 
         List<TreeNode> Sharers = new List<TreeNode>();
@@ -108,7 +115,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
                 {
                     TreeNode ChildNode = SocialNetwork.AddChild(currentNode);
                     ChildNode.GenerateNodeContent(NodeFailureThreshold, NodeSuccessThreshold, FanProbabilityIfSuccess);
-                    //handle the stopping code (the scoring isnt needed yet here
+                    //handle the stopping code (the scoring isnt needed here)
                     if (ChildNode.ShareState == 0)
                     {
                         NumberOfFailedNodes++;

@@ -6,10 +6,10 @@ using TMPro;
 public class NextDay : MonoBehaviour
 {
     public SceneToSceneDataKeeper DataKeeperReference;
-    
+    public float dayNumberSize = 14f;
     
     void Start()
     {
-        this.GetComponent<TextMeshProUGUI>().text = new string("Day <size=14><b>" + DataKeeperReference.GetCurrentDay().ToString())+ "</b></size>";
+        this.GetComponent<TextMeshProUGUI>().text = new string("Day <size="+dayNumberSize+"><b>" + DataKeeperReference.GetCurrentDay().ToString())+ "</b></size>";
     }
 }

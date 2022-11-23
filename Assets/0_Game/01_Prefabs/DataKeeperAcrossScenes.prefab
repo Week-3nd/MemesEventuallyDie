@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202185462563511650}
   - component: {fileID: 941604719774237923}
+  - component: {fileID: 3065144903998031592}
   m_Layer: 0
   m_Name: DataKeeperAcrossScenes
   m_TagString: Untagged
@@ -44,3 +45,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22bbfab0c9eb59243ae18372d5a3c53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3065144903998031592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501460680489702770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77541d1d87071840a44aab998fe35b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botsDevelopersInfluence:
+  - {x: 0, y: 0}
+  - {x: 1, y: 1}
+  - {x: 3, y: 2}
+  - {x: 6, y: 3}
+  - {x: 9, y: 4}
+  - {x: 12, y: 5}
+  memersCommittee:
+  - {x: 0, y: 3}
+  - {x: 6, y: 4}
+  - {x: 12, y: 5}
+  convincingStans:
+  - {x: 0, y: 0.05}
+  - {x: 10, y: 0.075}
+  cringeYogisInfluence:
+  - {x: 0, y: 5}
+  - {x: 1, y: 10}
+  - {x: 2, y: 15}
+  - {x: 3, y: 20}
+  - {x: 4, y: 26}
+  - {x: 5, y: 33}
+  - {x: 6, y: 41}
+  - {x: 7, y: 50}
+  - {x: 8, y: 60}
+  - {x: 9, y: 71}
+  - {x: 10, y: 83}
+  - {x: 11, y: 95}
+  - {x: 12, y: 108}
+  - {x: 13, y: 124}
+  memeAnalysts:
+  - {x: 0, y: 0}
+  - {x: 2, y: 1}
+  - {x: 5, y: 3}
+  - {x: 9, y: 5}
+  - {x: 13, y: 7}
+  clickbaitSpecialists:
+  - {x: 0, y: 0.34}
+  - {x: 2, y: 0.36}
+  - {x: 5, y: 0.38}
+  - {x: 9, y: 0.4}
+  - {x: 13, y: 0.42}

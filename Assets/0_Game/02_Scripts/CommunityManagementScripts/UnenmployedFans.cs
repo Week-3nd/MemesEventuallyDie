@@ -31,7 +31,7 @@ public class UnenmployedFans : MonoBehaviour
     {
         fansPositions = new Vector3[fanMaxAmountToDisplay];
         dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
-        dataKeeper.InitializeCommunityLists();
+        //dataKeeper.InitializeCommunityLists();
         //dataKeeper.PrintCommunityListsAmounts();
         PrintAvailableFans();
         //ReorderFans();

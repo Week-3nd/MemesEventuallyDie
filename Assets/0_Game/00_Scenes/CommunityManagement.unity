@@ -1633,6 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DataKeeperReference: {fileID: 2067921886}
+  dayNumberSize: 14
 --- !u!114 &1399012556 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}

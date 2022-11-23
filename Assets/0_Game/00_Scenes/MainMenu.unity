@@ -432,6 +432,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1598379726}
+        m_TargetAssemblyTypeName: SceneToSceneDataKeeper, Assembly-CSharp
+        m_MethodName: InitializeCommunityLists
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1563808549}
         m_TargetAssemblyTypeName: LoadTargetScene, Assembly-CSharp
         m_MethodName: LoadScene
@@ -721,3 +733,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e46afcd75865444da2de1fc5d8eac51, type: 3}
+--- !u!114 &1598379726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 941604719774237923, guid: 7e46afcd75865444da2de1fc5d8eac51, type: 3}
+  m_PrefabInstance: {fileID: 1598379725}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bbfab0c9eb59243ae18372d5a3c53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
