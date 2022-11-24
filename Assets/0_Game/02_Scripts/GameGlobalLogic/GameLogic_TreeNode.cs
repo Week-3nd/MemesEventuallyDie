@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,20 +21,22 @@ public class TreeNode
     public bool isBot = false;
     public int SpecialEventIndexInfluence = 0;
     //Fluff
-    public string Username;
-    public string Description;
-    public int ProfilePicture;
-    public Texture ProfileBanner;
-    public float FollowersCount;
-    public bool IsVerified;
-    public bool HasCommunityBadge;
+    public int busteIndex;
+    public int faceIndex;
+    public int mouthIndex;
+    public int noseIndex;
+    public int eyeIndex;
+    public int hairIndex;
+    public int earIndex;
+    public int skinToneIndex;
+    public int tShirtColorIndex;
 
 
     //Descending tree function
     private List<TreeNode> Descendants = new List<TreeNode>();
 
     //Augments UI
-    
+
 
 
     public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold, float FanChance)
@@ -58,18 +59,34 @@ public class TreeNode
         {
             ShareState = 1;
         }
-        
+
         if (isBot)
         {
             ShareState = 2;
-            ProfilePicture = 5;
+            busteIndex = 0;
+            faceIndex = 0;
+            mouthIndex = 0;
+            noseIndex = 0;
+            eyeIndex = 0;
+            hairIndex = 0;
+            earIndex = 0;
+            skinToneIndex = 0;
+            tShirtColorIndex = 0;
         }
         else
         {
-            ProfilePicture = Random.Range(0, 5);
+            busteIndex = 0;
+            faceIndex = Random.Range(0, 10);
+            mouthIndex = Random.Range(0, 10);
+            noseIndex = Random.Range(0, 10);
+            eyeIndex = Random.Range(0, 10);
+            hairIndex = Random.Range(0, 10);
+            earIndex = Random.Range(0, 10);
+            skinToneIndex = Random.Range(0, 10);
+            tShirtColorIndex = Random.Range(0, 10);
         }
-        //hardcodé pour le moment
     }
+    //hardcodé pour le moment
 
 
     public int GetDepth()
@@ -92,7 +109,7 @@ public class TreeNode
         {
             return 1 + this.Parent.LengthOfFirstbornLine(); // To verify
         }
-        return 0; 
+        return 0;
     }
 
     public List<TreeNode> GetDescendingTree()
@@ -122,7 +139,7 @@ public class TreeNode
 
     public string GetNodeTreeInfo()
     {
-        
-        return "ShareState : "+ShareState+" | Children : "+Children.ToString()+" | Depth : "+GetDepth();
+
+        return "ShareState : " + ShareState + " | Children : " + Children.ToString() + " | Depth : " + GetDepth();
     }
 }

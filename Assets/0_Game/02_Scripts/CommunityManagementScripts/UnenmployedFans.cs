@@ -19,9 +19,6 @@ public class UnenmployedFans : MonoBehaviour
     private int overflowingFanAmount = 0;
     public GameObject OverFlowFansObject;
 
-    public Sprite[] ProfilePictures;
-    public Color[] ProfilePictureBorderColors;
-
     public TransformHolder[] AugmentsUI;
 
 
@@ -88,11 +85,15 @@ public class UnenmployedFans : MonoBehaviour
 
             //Assign TreeNode information
             user.AssociatedGameObject = UserProfile;
-            UserProfile.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[user.ProfilePicture];
-            UserProfile.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+            UserProfile.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
+                user.busteIndex, user.faceIndex, user.mouthIndex, user.noseIndex, user.eyeIndex, user.hairIndex, user.earIndex, user.skinToneIndex, user.tShirtColorIndex);
+            UserProfile.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(user.ShareState);
+            if (user.isFan)
+            {
+                UserProfile.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(3);
+            }
             UserProfile.GetComponent<CircleCollider2D>().enabled = true;
             UserProfile.GetComponent<AssociatedTreeNode>().associatedNode = user;
-
 
             i++;
         }

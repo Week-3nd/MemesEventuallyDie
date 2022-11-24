@@ -32,8 +32,6 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
 
     //Drawable Object Parameters
     public GameObject NetworkProfileObject;
-    public Sprite[] ProfilePictures;
-    public Color[] ProfilePictureBorderColors;
 
     //Arrow procedural Generation parameters
     public float ArrowWidth = 1.0f;
@@ -130,6 +128,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     // function B
     private void DrawRowT1(int depth)
     {
+        // Place at starting point to draw & initialize values
         List<TreeNode> currentDepthList = SocialNetwork.DepthLists[depth];
         float HorizontalNeededSpace = (currentDepthList.Count - 1) * HorizontalSpacing;
         CurrentHorizontalPosition = Origin.x - (HorizontalNeededSpace / 2);
@@ -143,21 +142,16 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 Quaternion.identity,
                 NetworkParent.transform);
 
-            //Assign TreeNode information
+            //Assign Display information
             currentNode.AssociatedGameObject = NewNode;
-            NewNode.GetComponentsInChildren<SpriteRenderer>()[0].sprite = ProfilePictures[currentNode.ProfilePicture];
-            NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
-            NewNode.GetComponent<CircleCollider2D>().enabled = false;
+            NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
+                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex, currentNode.tShirtColorIndex);
+            NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(currentNode.ShareState);
             if (currentNode.isFan)
             {
-                NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[3];
+                NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(3);
             }
-             /*
-            if (currentNode.ShareState == 2)
-            {
-                NewNode.GetComponentInChildren<VisualEffect>().enabled = true;
-            }
-            // */
+
 
             //Extract Node score information
             if (currentNode.ShareState == 2)
@@ -181,7 +175,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 NewNode.GetComponentInChildren<GenerateArrow>().GenArrow(Vector2.zero, end, ArrowWidth, ArrowMaterial);
             }
 
-            //Prepare next iteration of the loop
+            //Prepare next horizontal iteration of the loop
             CurrentHorizontalPosition += HorizontalSpacing;
             index++;
         }
@@ -197,6 +191,11 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         //Prepare next row
         CurrentVerticalPosition -= VerticalSpacing;
     }
+
+
+
+
+
 
 
     // GROUP 2
@@ -354,8 +353,9 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
 
             //Assign TreeNode information
             currentNode.AssociatedGameObject = NewNode;
-            NewNode.GetComponent<SpriteRenderer>().sprite = ProfilePictures[currentNode.ProfilePicture];
-            NewNode.GetComponentsInChildren<SpriteRenderer>()[1].color = ProfilePictureBorderColors[currentNode.ShareState];
+            NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
+                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex,currentNode.tShirtColorIndex);
+
 
             //Extract Node score information
             if (currentNode.ShareState == 2)
