@@ -29,6 +29,7 @@ public class TreeNode
     public int hairIndex;
     public int earIndex;
     public int skinToneIndex;
+    public int bgColorIndex;
     public int tShirtColorIndex;
 
 
@@ -71,7 +72,7 @@ public class TreeNode
             hairIndex = 0;
             earIndex = 0;
             skinToneIndex = 0;
-            tShirtColorIndex = 0;
+            bgColorIndex = 0;
         }
         else
         {
@@ -83,6 +84,7 @@ public class TreeNode
             hairIndex = Random.Range(0, 10);
             earIndex = Random.Range(0, 10);
             skinToneIndex = Random.Range(0, 10);
+            bgColorIndex = Random.Range(0, 10);
             tShirtColorIndex = Random.Range(0, 10);
         }
     }

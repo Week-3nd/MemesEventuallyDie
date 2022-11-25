@@ -20,6 +20,11 @@ public class DragAndDrop : MonoBehaviour
 
     // Drag and Drop visual feedbacks
     public GameObject DragDropFeedback;
+    private bool isHovered;
+    public float onMouseOverScaleDuration;
+    public float onMouseOverScaleAmount;
+    private float scaleTimer;
+
 
     private void Start()
     {
@@ -69,6 +74,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void Update()
     {
+        //moves the object under the mouse at start
         if (isSweeping)
         {
             SweepingTimer += Time.deltaTime;
@@ -77,6 +83,19 @@ public class DragAndDrop : MonoBehaviour
                 isSweeping = false;
             }
         }
+
+        // on mouse Over : makes the item scale
+        if (isHovered)
+        {
+            scaleTimer = Mathf.Clamp(scaleTimer + Time.deltaTime, 0, onMouseOverScaleDuration);
+        }
+        else
+        {
+            scaleTimer = Mathf.Clamp(scaleTimer - Time.deltaTime, 0, onMouseOverScaleDuration);
+        }
+        float timeRatio = scaleTimer / onMouseOverScaleDuration;
+        float scaleRatio = Mathf.Lerp(1, onMouseOverScaleAmount, timeRatio);
+        ProfileToMove.transform.localScale = new Vector3(scaleRatio, scaleRatio, 1);
     }
 
     private void OnTriggerStay2D(Collider2D augmentCollider)
@@ -128,9 +147,14 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnMouseOver()
     {
+        isHovered = true;
+    }
 
+    private void OnMouseExit()
+    {
+        isHovered = false;
     }
 
 }

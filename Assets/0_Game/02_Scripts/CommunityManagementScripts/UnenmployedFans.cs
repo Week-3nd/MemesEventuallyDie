@@ -86,7 +86,7 @@ public class UnenmployedFans : MonoBehaviour
             //Assign TreeNode information
             user.AssociatedGameObject = UserProfile;
             UserProfile.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
-                user.busteIndex, user.faceIndex, user.mouthIndex, user.noseIndex, user.eyeIndex, user.hairIndex, user.earIndex, user.skinToneIndex, user.tShirtColorIndex);
+                user.busteIndex, user.faceIndex, user.mouthIndex, user.noseIndex, user.eyeIndex, user.hairIndex, user.earIndex, user.skinToneIndex, user.bgColorIndex, user.tShirtColorIndex);
             UserProfile.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(user.ShareState);
             if (user.isFan)
             {

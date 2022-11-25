@@ -33,6 +33,9 @@ public class ProfilePictureGeneration : MonoBehaviour
     public SpriteRenderer ear;
     public Sprite[] ears;
 
+    public SpriteRenderer background;
+    public List<Color> backgroundColors;
+
     public SpriteRenderer tShirt;
     public List<Color> tShirtColors;
 
@@ -46,6 +49,7 @@ public class ProfilePictureGeneration : MonoBehaviour
         int hairIndex,
         int earIndex,
         int skinToneIndex,
+        int bgColorIndex,
         int tShirtColorIndex)
     {
         buste.sprite = bustes[busteIndex];
@@ -58,6 +62,7 @@ public class ProfilePictureGeneration : MonoBehaviour
         hair.sprite = hairs[hairIndex];
         ear.sprite = ears[earIndex];
         ear.color = skinTones[skinToneIndex];
+        background.color = backgroundColors[bgColorIndex];
         tShirt.color = tShirtColors[tShirtColorIndex];
     }
 

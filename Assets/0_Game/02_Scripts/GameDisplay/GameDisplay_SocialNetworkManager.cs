@@ -145,12 +145,13 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             //Assign Display information
             currentNode.AssociatedGameObject = NewNode;
             NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
-                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex, currentNode.tShirtColorIndex);
+                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex, currentNode.bgColorIndex, currentNode.tShirtColorIndex);
             NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(currentNode.ShareState);
             if (currentNode.isFan)
             {
                 NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(3);
             }
+            NewNode.GetComponent<CircleCollider2D>().enabled = false;
 
 
             //Extract Node score information
@@ -354,7 +355,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             //Assign TreeNode information
             currentNode.AssociatedGameObject = NewNode;
             NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfilePicture(
-                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex,currentNode.tShirtColorIndex);
+                currentNode.busteIndex, currentNode.faceIndex, currentNode.mouthIndex, currentNode.noseIndex, currentNode.eyeIndex, currentNode.hairIndex, currentNode.earIndex, currentNode.skinToneIndex,currentNode.bgColorIndex, currentNode.tShirtColorIndex);
 
 
             //Extract Node score information
