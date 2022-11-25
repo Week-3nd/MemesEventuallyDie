@@ -36,12 +36,15 @@ public class TreeNode
     //Descending tree function
     private List<TreeNode> Descendants = new List<TreeNode>();
 
-    //Augments UI
 
 
-
-    public void GenerateNodeContent(float FailureThreshold, float SuccessThreshold, float FanChance)
+    public void GenerateNodeContent(float FailureProbability, float SuccessProbability /*, float FanChance*/)
     {
+        //transforming data in usable information
+        float FailureThreshold = FailureProbability;
+        float SuccessThreshold = 1 - SuccessProbability;
+
+
         float result = Random.value;
         if (result < FailureThreshold)
         {
@@ -50,11 +53,14 @@ public class TreeNode
         else if (result > SuccessThreshold)
         {
             ShareState = 2;
+            /*
+            // is fan random value
             float fanRandom = Random.value;
             if (fanRandom < FanChance && !isBot)
             {
                 isFan = true;
             }
+            // */
         }
         else
         {

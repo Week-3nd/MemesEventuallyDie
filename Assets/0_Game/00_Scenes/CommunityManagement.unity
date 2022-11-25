@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Increase share probability
       objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 6
@@ -390,17 +394,6 @@ MonoBehaviour:
   fanSpacing: 4
   fanMaxAmountToDisplay: 17
   OverFlowFansObject: {fileID: 40611011}
-  ProfilePictures:
-  - {fileID: 21300000, guid: 37a50fa30811c5e4dbdddd513a07fe88, type: 3}
-  - {fileID: 21300000, guid: 10e583ecc108af645953e95017c04b66, type: 3}
-  - {fileID: 21300000, guid: f8aedc79e00e265499a1b06ca27f79e0, type: 3}
-  - {fileID: 21300000, guid: fdb394eedc2b6f64ba5bc472d5a6aee0, type: 3}
-  - {fileID: 21300000, guid: fed212ed85ec7ec438dad2855fc12b11, type: 3}
-  ProfilePictureBorderColors:
-  - {r: 0, g: 0.11850643, b: 1, a: 1}
-  - {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
-  - {r: 0.9846988, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.029119492, a: 1}
   AugmentsUI:
   - {fileID: 778989252}
   - {fileID: 418864672}
@@ -1156,6 +1149,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Increase sharer's turning into a fan probability
       objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 3
@@ -1636,6 +1633,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tolerate more faithblog posts
       objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: Text
+      value: ' tolerated faithblog posts'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: augmentIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 4
@@ -1647,6 +1652,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476203587894351900, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
   m_PrefabInstance: {fileID: 1077136099}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1077136101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3476203588185360184, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+  m_PrefabInstance: {fileID: 1077136099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077136102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077136101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b17df3c87d2ab43998eb3b469c9fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeText: 'Tolerate up to '
+  afterText: ' faithblog posts'
+  sizeOfVariable: 13
 --- !u!1 &1107592339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1822,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.8160377, b: 0.9844539, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2303,6 +2328,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AugmentFakeUI (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: Text
+      value: ' uncovered meme stats'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: augmentIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 5
@@ -2314,6 +2347,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476203587894351900, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
   m_PrefabInstance: {fileID: 1598854004}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1598854006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3476203588185360184, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+  m_PrefabInstance: {fileID: 1598854004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1598854007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598854006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0138e5cdaecb8f745964642429f59bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeText: 'Uncover '
+  afterText: ' stats on your memes'
+  sizeOfVariable: 13
 --- !u!114 &1616156839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
@@ -2834,6 +2887,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Supply additionel memes to choose from
       objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: Text
+      value: ' memes to choose from'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207621796303198033, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: augmentIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 2
@@ -2845,6 +2906,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476203587894351900, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
   m_PrefabInstance: {fileID: 1861128791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1861128793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3476203588185360184, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+  m_PrefabInstance: {fileID: 1861128791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861128794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861128793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a85b00f55a94b4a9f3fb13b47f2d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeText: 'Choose from '
+  afterText: ' memes'
+  sizeOfVariable: 13
 --- !u!1 &1890202467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,6 +3255,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1122907321}
     m_Modifications:
+    - target: {fileID: 165024628780991566, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 740843601564854071, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 822923286211100622, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085092761611990564, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105586378794023600, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422239451986272234, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_text
+      value: +3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586519409498894197, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984245429089175261, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205365025040744129, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3242971561146994330, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3476203586507683327, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: m_Text
       value: BOTS DEVELOPERS
@@ -3230,9 +3351,97 @@ PrefabInstance:
       propertyPath: m_Text
       value: (May) share your meme at start
       objectReference: {fileID: 0}
+    - target: {fileID: 3503643049784765998, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966563127526081620, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404218703849709384, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921454390425746092, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_text
+      value: +4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189087476667933982, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435895643179303848, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169697018126574558, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278574462068207248, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 7040214590502299167, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: AugmentIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7508719261278798857, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_text
+      value: +2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676308455759167913, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_text
+      value: Get <size=13><b>0</b></size> bots reposting your meme at start
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676308455759167913, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676308455759167913, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869100599153450635, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943485400280015105, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678886617529321423, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934058607396963187, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084909459704987505, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+--- !u!1 &3476203587438346922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3476203588185360184, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+  m_PrefabInstance: {fileID: 3476203587438346921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3476203587438346923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3476203587438346922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c9aa46fd12147418b8995bdb2cb080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeText: 'Get '
+  afterText: ' bots reposting your meme at start'
+  sizeOfVariable: 13

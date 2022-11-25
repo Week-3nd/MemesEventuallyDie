@@ -270,10 +270,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08905886b3815f4d8e98f5efb3ee4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FanAmountAccordingToShareAmount:
+  - {x: 0, y: 0}
+  - {x: 2, y: 1}
+  - {x: 8, y: 2}
   FailureProbability: 0.05
   TentativesOfReshare: 3
-  BotTentativesOfReshare: 2
+  BotTentativesOfReshare: 3
   InvincibleGenerations: 4
+  sharersPerGenThreshold: 3
+  highShareChances: 0.28
+  LowShareChances: 0.2
   dataKeeper: {fileID: 2080246563}
   influence: {fileID: 2080246564}
 --- !u!114 &659073786

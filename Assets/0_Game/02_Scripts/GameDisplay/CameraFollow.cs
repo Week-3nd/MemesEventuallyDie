@@ -22,6 +22,9 @@ public class CameraFollow : MonoBehaviour
     public int RezoomFactor = 2;
     private float RezoomRate = 1.0f;
 
+    // at the end of the spreading : use the other camera script
+    private bool hasToSwitch = false;
+
 
 
     // Start is called before the first frame update
@@ -55,6 +58,12 @@ public class CameraFollow : MonoBehaviour
         {
             this.transform.position = TargetPosition;
             this.GetComponent<Camera>().orthographicSize = TargetZoom;
+
+            if (hasToSwitch)
+            {
+                this.GetComponent<RTSCamera>().enabled = true;
+                this.enabled = false;
+            }
         }
     }
 
@@ -83,5 +92,10 @@ public class CameraFollow : MonoBehaviour
     public void SetRezoomRate(float NewRezoomRate)
     {
         RezoomRate = NewRezoomRate;
+    }
+
+    public void SwitchCamera()
+    {
+        hasToSwitch = true;
     }
 }

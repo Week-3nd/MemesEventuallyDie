@@ -10,8 +10,8 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     [Tooltip("If number of affected Fans reach X value, then generate Y number of memes.")]
     public List<Vector2Int> memersCommittee = new List<Vector2Int>();
 
-    [Tooltip("If number of affected Fans reach X value, then use Y number as fan probability among sharers.")]
-    public List<Vector2> convincingStans = new List<Vector2>();
+    [Tooltip("If number of affected Fans reach the X value, then you get Z fans for passing over Y number of sharers during spread.")]
+    public List<Vector3Int> convincingStans = new List<Vector3Int>();
 
     [Tooltip("If number of affected Fans reach X value, then authorize up to Y posts on faithblog.")]
     public List<Vector2Int> cringeYogisInfluence = new List<Vector2Int>();
@@ -19,8 +19,8 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     [Tooltip("If number of affected Fans reach X value, then display Y random stats among total on memes.")]
     public List<Vector2Int> memeAnalysts = new List<Vector2Int>();
 
-    [Tooltip("If number of affected Fans reach X value, then use Y number as share probability.")]
-    public List<Vector2> clickbaitSpecialists = new List<Vector2>();
+    [Tooltip("If number of affected Fans reach X value, then use Y as low share probability, Z as high share probability.")]
+    public List<Vector3> clickbaitSpecialists = new List<Vector3>(); // base : x = 0, y = 0.2, z = 0.28
 
 
 
@@ -58,20 +58,39 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     }
 
 
-    public float GetFanProbability(int numberOfConvincingFans)
+    public List<Vector2Int> GetFanProbabilities(int numberOfConvincingFans)
     {
-        foreach (Vector2 currentThreshold in convincingStans)
+        List<Vector2Int> fanProbabilities = new();
+        bool isExactThreshold = false;
+        foreach (Vector3Int currentIndex in convincingStans)
         {
-            if (currentThreshold.x == numberOfConvincingFans)
+            if (currentIndex.x == numberOfConvincingFans)
             {
-                return currentThreshold.y;
+                isExactThreshold = true;
+                fanProbabilities.Add(new Vector2Int(currentIndex.y, currentIndex.z));
             }
-            if (currentThreshold.x > numberOfConvincingFans)
+            if (currentIndex.x > numberOfConvincingFans && isExactThreshold == false)
             {
-                return convincingStans[convincingStans.IndexOf(currentThreshold) - 1].y;
+                //si on ne tombe pas pile sur un index à un moment :
+                //on refait la boucle pour faire la liste de tous les éléments dont x est égal au palier immédiamtement inférieur
+                int exactThreshold = convincingStans[convincingStans.IndexOf(currentIndex) - 1].x;
+                foreach (Vector3Int iteration2 in convincingStans)
+                {
+                    if (iteration2.x == exactThreshold)
+                    {
+                        isExactThreshold = true;
+                        fanProbabilities.Add(new Vector2Int(iteration2.y, iteration2.z));
+                    }
+                    if (iteration2.x > exactThreshold)
+                    {
+                        return fanProbabilities;
+                    }
+                }
             }
+
         }
-        return convincingStans[convincingStans.Count - 1].y;
+
+        return fanProbabilities;
     }
 
 
@@ -109,19 +128,19 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     }
 
 
-    public float GetShareProbability(int numberOfClickbaitSpecialists)
+    public Vector2 GetShareProbability(int numberOfClickbaitSpecialists)
     {
-        foreach (Vector2 currentThreshold in clickbaitSpecialists)
+        foreach (Vector3 currentThreshold in clickbaitSpecialists)
         {
             if (currentThreshold.x == numberOfClickbaitSpecialists)
             {
-                return currentThreshold.y;
+                return new Vector2(currentThreshold.y,currentThreshold.z);
             }
             if (currentThreshold.x > numberOfClickbaitSpecialists)
             {
-                return clickbaitSpecialists[clickbaitSpecialists.IndexOf(currentThreshold) - 1].y;
+                return new Vector2(clickbaitSpecialists[clickbaitSpecialists.IndexOf(currentThreshold) - 1].y, clickbaitSpecialists[clickbaitSpecialists.IndexOf(currentThreshold) - 1].z);
             }
         }
-        return clickbaitSpecialists[clickbaitSpecialists.Count - 1].y;
+        return new Vector2(clickbaitSpecialists[clickbaitSpecialists.Count - 1].y, clickbaitSpecialists[clickbaitSpecialists.Count - 1].z);
     }
 }

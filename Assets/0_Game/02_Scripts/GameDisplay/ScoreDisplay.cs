@@ -42,6 +42,7 @@ public class ScoreDisplay : MonoBehaviour
                 ObjectToActivateUponFinish.SetActive(true);
                 StopCalculating = true;
                 Camera.SetTarget(CameraLastPosition, CameraLastZoomFactor, CameraLastDezoomDuration);
+
             }
         }
         
