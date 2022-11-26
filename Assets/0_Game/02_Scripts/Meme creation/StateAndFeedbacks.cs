@@ -5,15 +5,22 @@ using UnityEngine.InputSystem;
 
 public class StateAndFeedbacks : MonoBehaviour
 {
-    private bool isHovered = false;
+    public bool isHovered = false;
     public bool isSelected = false;
     public GameObject card;
     public float scaleDuration = 0.2f;
     public float selectedOrHoveredScale = 1.1f;
     private float scaleTimer = 0.0f;
     public GameObject validateButton;
-    
 
+    private CardsCreation cardsCreation;
+    public int cardIndex;
+
+
+    private void Start()
+    {
+        cardsCreation = FindObjectOfType<CardsCreation>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,7 +50,7 @@ public class StateAndFeedbacks : MonoBehaviour
         isHovered = false;
     }
 
-    private void OnMouseUpAsButton()
+    public void OnMouseUpAsButton()
     {
         StateAndFeedbacks[] allOthers = FindObjectsOfType<StateAndFeedbacks>();
         foreach (StateAndFeedbacks otherState in allOthers)
@@ -51,6 +58,7 @@ public class StateAndFeedbacks : MonoBehaviour
             otherState.isSelected = false;
         }
         this.isSelected = true;
+        cardsCreation.SetSelectedCardIndex(cardIndex);
         validateButton.SetActive(true);
     }
 }

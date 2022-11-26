@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1202185462563511650}
   - component: {fileID: 941604719774237923}
   - component: {fileID: 3065144903998031592}
+  - component: {fileID: 6005762279339876741}
   m_Layer: 0
   m_Name: DataKeeperAcrossScenes
   m_TagString: Untagged
@@ -120,3 +121,31 @@ MonoBehaviour:
   - {x: 3, y: 0.26, z: 0.33}
   - {x: 7, y: 0.29, z: 0.36}
   - {x: 10, y: 0.32, z: 0.4}
+--- !u!114 &6005762279339876741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501460680489702770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765a61a0ac247464989cfda4cf3c66cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMinViralityBonus: -0.01
+  baseMaxViralityBonus: 0.03
+  extendedMinViralityBonus: -0.06
+  extendedMaxViralityBonus: 0.07
+  baseMinCringenessBonus: -0.01
+  baseMaxCringenessBonus: 0.02
+  extendedMinCringenessBonus: -0.03
+  extendedMaxCringenessBonus: 0.1
+  baseMinUniversality: 4
+  baseMaxUniversality: 5
+  extendedMinUniversality: 4
+  extendedMaxUniversality: 10
+  baseMinBotShares: 2
+  baseMaxBotShares: 3
+  extendedMinBotShares: 1
+  extendedMaxBotShares: 5

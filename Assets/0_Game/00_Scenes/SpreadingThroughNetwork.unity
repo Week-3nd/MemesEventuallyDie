@@ -283,6 +283,7 @@ MonoBehaviour:
   LowShareChances: 0.2
   dataKeeper: {fileID: 2080246563}
   influence: {fileID: 2080246564}
+  cardsCreation: {fileID: 2080246565}
 --- !u!114 &659073786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,6 +899,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2080246565}
+        m_TargetAssemblyTypeName: CardsCreation, Assembly-CSharp
+        m_MethodName: GenerateCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1272279991}
         m_TargetAssemblyTypeName: LoadTargetScene, Assembly-CSharp
         m_MethodName: LoadScene
@@ -1253,5 +1266,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d77541d1d87071840a44aab998fe35b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2080246565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6005762279339876741, guid: 7e46afcd75865444da2de1fc5d8eac51, type: 3}
+  m_PrefabInstance: {fileID: 2080246562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765a61a0ac247464989cfda4cf3c66cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -7,14 +7,11 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     // Network management
     //[Tooltip("Value between 0 and 1. If random evaluation is higher : meme shared. If lower : meme not shared.")]
     private float SuccessProbability = 0.32f;
-    //private float NodeSuccessThreshold = 0.9f;
     //[Tooltip("Value between 0 and 1. If node is success, then there is this chance of it transforming into a fan.")]
-    //private float FanProbabilityIfSuccess = 0.15f;
     public List<Vector2Int> FanAmountAccordingToShareAmount;
 
     [Tooltip("Value between 0 and 1. If random evaluation is higher : meme not shared. If lower : meme shared on facebook.")]
     public float FailureProbability = 0.05f;
-    //private float NodeFailureThreshold = 0.1f;
     private int NumberOfFailedNodes = 0;
 
     [Tooltip("For each successful share, number of times we attempt to share again.")]
@@ -47,30 +44,57 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     //Data management
     public SceneToSceneDataKeeper dataKeeper;
     public GameLogic_CommAndMemeInfluence influence;
-
+    public CardsCreation cardsCreation;
 
 
     private void Start()
     {
-        //taking data from external influences
-        highShareChances = influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).x;
-        LowShareChances = influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).y;
-        SuccessProbability = highShareChances;
-        AuthorizedFails = influence.GetAuthorizedFailsAmount(dataKeeper.GetSpecificCommunityList(4).Count);
-        FanAmountAccordingToShareAmount = influence.GetFanProbabilities(dataKeeper.GetSpecificCommunityList(3).Count);
-        firstGenBotsAmount = influence.GetBotsAmount(dataKeeper.GetSpecificCommunityList(1).Count);
+        // Ensuring the selected Card is the good one
+        Debug.Log("CARD STATS"
+            + " | Virality : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].viralityBonus.ToString()
+            + " | Cringeness : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].cringenessBonus.ToString()
+            + " | Universality : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].universality.ToString()
+            + " | Bot shares : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].botShare.ToString());
         
-        /*
-        Debug.Log("Share probability : " + SuccessProbability
-            + " | Max faithblog posts : " + AuthorizedFails
-            + " | Fan probabilty upon share : " + FanProbabilityIfSuccess
-            + " | First gen bots : " + firstGenBotsAmount);
-        // */
+        //taking data from external influences
+        highShareChances =
+            influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).x
+            + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].viralityBonus;
 
-         /*
-        //transforming data in usable information
-        NodeFailureThreshold = FailureProbability;
-        NodeSuccessThreshold = 1 - SuccessProbability;
+        LowShareChances =
+            influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).y
+            + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].viralityBonus;
+
+        SuccessProbability =
+            highShareChances;
+
+        FailureProbability
+            += cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].cringenessBonus;
+
+        AuthorizedFails =
+            influence.GetAuthorizedFailsAmount(dataKeeper.GetSpecificCommunityList(4).Count);
+
+        InvincibleGenerations =
+            cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].universality;
+
+        FanAmountAccordingToShareAmount =
+            influence.GetFanProbabilities(dataKeeper.GetSpecificCommunityList(3).Count);
+
+        firstGenBotsAmount =
+            influence.GetBotsAmount(dataKeeper.GetSpecificCommunityList(1).Count);
+
+        BotTentativesOfReshare =
+            cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].botShare;
+
+        // Logging quasi all stats
+        // /*
+        Debug.Log("highShareChances : " + highShareChances
+            + " | LowShareChances : " + LowShareChances
+            + " | FailureProbability : " + FailureProbability
+            + " | AuthorizedFails : " + AuthorizedFails
+            + " | InvincibleGenerations : " + InvincibleGenerations
+            + " | First gen bots : " + firstGenBotsAmount
+            + " | BotTentativesOfReshare" + BotTentativesOfReshare);
         // */
     }
 

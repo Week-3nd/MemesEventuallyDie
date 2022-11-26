@@ -184,6 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &19501633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 19501632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &137091002
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +390,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2283592837212480882, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
   m_PrefabInstance: {fileID: 140571082}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &140571084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 140571082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &184154050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2283592837212480882, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
@@ -517,6 +527,10 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -526,6 +540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &628347640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 628347639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673719147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -578,6 +597,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -585,8 +608,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MemeFakeUI (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &673719148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 673719147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838841376
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +846,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -826,6 +862,11 @@ PrefabInstance:
 --- !u!4 &898110754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2283592837212480882, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 898110753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &898110755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
   m_PrefabInstance: {fileID: 898110753}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067441038
@@ -979,6 +1020,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -988,6 +1033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &1239512256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1239512255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1245239974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,6 +1099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &1245239975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1245239974}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314282536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1291,10 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -1245,6 +1304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &1325475832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1325475831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1349865228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,6 +1361,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -1306,6 +1374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &1349865229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1349865228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1381271429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2283592837212480882, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
@@ -1406,6 +1479,23 @@ MonoBehaviour:
   objectWith3Cards: {fileID: 292415490}
   objectWith4Cards: {fileID: 1469404056}
   objectWith5Cards: {fileID: 361990425}
+  card1Objects:
+  - {fileID: 1245239975}
+  - {fileID: 19501633}
+  - {fileID: 140571084}
+  card2Objects:
+  - {fileID: 1349865229}
+  - {fileID: 1239512256}
+  - {fileID: 673719148}
+  card3Objects:
+  - {fileID: 1325475832}
+  - {fileID: 1803980359}
+  - {fileID: 898110755}
+  card4Objects:
+  - {fileID: 628347640}
+  - {fileID: 2144306554}
+  card5Objects:
+  - {fileID: 1748416128}
 --- !u!1 &1563050841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1844,10 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -1766,6 +1860,11 @@ PrefabInstance:
 --- !u!4 &1748416127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2283592837212480882, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1748416126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1748416128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
   m_PrefabInstance: {fileID: 1748416126}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1769497789 stripped
@@ -1825,6 +1924,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -1834,6 +1937,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &1803980359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 1803980358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807403709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2249,10 @@ PrefabInstance:
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+      propertyPath: cardIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132901533922797945, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
       propertyPath: validateButton
       value: 
       objectReference: {fileID: 1647181908}
@@ -2150,3 +2262,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+--- !u!1 &2144306554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043314112629397922, guid: d61e943e0bfe4ec46ae6afe73797d36c, type: 3}
+  m_PrefabInstance: {fileID: 2144306553}
+  m_PrefabAsset: {fileID: 0}

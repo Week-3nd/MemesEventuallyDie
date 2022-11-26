@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class CardsInfluenceManager : MonoBehaviour
 {
+    private SceneToSceneDataKeeper dataKeeper;
+    private GameLogic_CommAndMemeInfluence influence;
+    private CardsCreation cardsCreation;
+
+    // displaying the correct cards
     public GameObject objectWith3Cards;
     public GameObject objectWith4Cards;
     public GameObject objectWith5Cards;
 
-    private SceneToSceneDataKeeper dataKeeper;
-    private GameLogic_CommAndMemeInfluence influence;
+    // populating cards
+    public List<GameObject> card1Objects;
+    public List<GameObject> card2Objects;
+    public List<GameObject> card3Objects;
+    public List<GameObject> card4Objects;
+    public List<GameObject> card5Objects;
+
 
     private void Start()
     {
         //Initialisation
         dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
         influence = FindObjectOfType<GameLogic_CommAndMemeInfluence>();
+        cardsCreation = FindObjectOfType<CardsCreation>();
 
         //Activating the correct object
         int numbersOfCards = influence.GetMemesAmount(dataKeeper.GetSpecificCommunityList(2).Count);
@@ -41,5 +52,58 @@ public class CardsInfluenceManager : MonoBehaviour
                 Debug.Log("Wtf les amis!");
                 break;
         }
+
+        // populating cards with correct data
+        foreach (GameObject cardObject in card1Objects)
+        {
+            CardData cardData = cardsCreation.GetCardsList()[0];
+            cardObject.GetComponentInChildren<CardDataVisualize>().PopulateData(
+                Mathf.RoundToInt(cardData.viralityBonus * 100),
+                Mathf.RoundToInt(cardData.cringenessBonus * 100),
+                cardData.universality,
+                cardData.botShare);
+        }
+
+        foreach (GameObject cardObject in card2Objects)
+        {
+            CardData cardData = cardsCreation.GetCardsList()[1];
+            cardObject.GetComponentInChildren<CardDataVisualize>().PopulateData(
+                Mathf.RoundToInt(cardData.viralityBonus * 100),
+                Mathf.RoundToInt(cardData.cringenessBonus * 100),
+                cardData.universality,
+                cardData.botShare);
+        }
+
+        foreach (GameObject cardObject in card3Objects)
+        {
+            CardData cardData = cardsCreation.GetCardsList()[2];
+            cardObject.GetComponentInChildren<CardDataVisualize>().PopulateData(
+                Mathf.RoundToInt(cardData.viralityBonus * 100),
+                Mathf.RoundToInt(cardData.cringenessBonus * 100),
+                cardData.universality,
+                cardData.botShare);
+        }
+
+        foreach (GameObject cardObject in card4Objects)
+        {
+            CardData cardData = cardsCreation.GetCardsList()[3];
+            cardObject.GetComponentInChildren<CardDataVisualize>().PopulateData(
+                Mathf.RoundToInt(cardData.viralityBonus * 100),
+                Mathf.RoundToInt(cardData.cringenessBonus * 100),
+                cardData.universality,
+                cardData.botShare);
+        }
+
+        foreach (GameObject cardObject in card5Objects)
+        {
+            CardData cardData = cardsCreation.GetCardsList()[4];
+            cardObject.GetComponentInChildren<CardDataVisualize>().PopulateData(
+                Mathf.RoundToInt(cardData.viralityBonus * 100),
+                Mathf.RoundToInt(cardData.cringenessBonus * 100),
+                cardData.universality,
+                cardData.botShare);
+        }
     }
+
+
 }
