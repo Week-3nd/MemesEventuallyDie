@@ -96,4 +96,19 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Used to tell if some UI elements can be displayed
+    /// </summary>
+    static public bool isFirstLoop = true;
+
+    public void FirstLoopDone()
+    {
+        isFirstLoop = false;
+    }
+
+    public bool IsFirstLoop()
+    {
+        return isFirstLoop;
+    }
 }
