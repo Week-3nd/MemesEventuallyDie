@@ -47,8 +47,8 @@ public class CardsCreation : MonoBehaviour
                     newCard.viralityBonus = Random.Range(Mathf.RoundToInt((baseMinViralityBonus * 100.0f)), Mathf.RoundToInt((baseMaxViralityBonus * 100.0f) + 1.0f)) / 100.0f; 
                     newCard.cringenessBonus = Random.Range(Mathf.RoundToInt(baseMinCringenessBonus * 100.0f), Mathf.RoundToInt((baseMaxCringenessBonus * 100.0f) + 1.0f )) / 100.0f;
                     // ints don't need rounding
-                    newCard.universality = Random.Range(baseMinUniversality, baseMaxUniversality);
-                    newCard.botShare = Random.Range(baseMinBotShares, baseMaxBotShares);
+                    newCard.universality = Random.Range(baseMinUniversality, baseMaxUniversality + 1);
+                    newCard.botShare = Random.Range(baseMinBotShares, baseMaxBotShares + 1);
                      /*
                     Debug.Log("Card " + i
                         + " | Virality : " + newCard.viralityBonus
@@ -60,8 +60,8 @@ public class CardsCreation : MonoBehaviour
                 case >= 3:
                     newCard.viralityBonus = Random.Range(Mathf.RoundToInt(extendedMinViralityBonus * 100.0f), Mathf.RoundToInt((extendedMaxViralityBonus * 100.0f) + 1.0f)) / 100.0f;
                     newCard.cringenessBonus = Random.Range(Mathf.RoundToInt(extendedMinCringenessBonus * 100.0f), Mathf.RoundToInt((extendedMaxCringenessBonus * 100.0f) + 1.0f)) / 100.0f;
-                    newCard.universality = Random.Range(extendedMinUniversality, extendedMaxUniversality);
-                    newCard.botShare = Random.Range(extendedMinBotShares, extendedMaxBotShares);
+                    newCard.universality = Random.Range(extendedMinUniversality, extendedMaxUniversality + 1);
+                    newCard.botShare = Random.Range(extendedMinBotShares, extendedMaxBotShares + 1);
                     break;
             }
 

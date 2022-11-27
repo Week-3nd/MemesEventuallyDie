@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cringeness is added to faithblog post probability.
+  m_text: Cringeness is added to faithblog post chance.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
   m_sharedMaterial: {fileID: 5113751411945509705, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}

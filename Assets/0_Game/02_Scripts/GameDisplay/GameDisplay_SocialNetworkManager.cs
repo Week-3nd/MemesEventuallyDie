@@ -42,6 +42,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     public int ShareScore = 1;
     public int FanScore = 3;
     public ScoreDisplay ScoreDisplayUI;
+    public FaithBlogPostsCounter fBCounterUI;
 
 
     
@@ -128,6 +129,9 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     // function B
     private void DrawRowT1(int depth)
     {
+        //prepare failed node number
+        int numberOfFailedNodes = 0;
+
         // Place at starting point to draw & initialize values
         List<TreeNode> currentDepthList = SocialNetwork.DepthLists[depth];
         float HorizontalNeededSpace = (currentDepthList.Count - 1) * HorizontalSpacing;
@@ -169,6 +173,11 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 ScoreDisplayUI.SetScoreDisplay(Score);
             }
 
+            if (currentNode.ShareState == 0)
+            {
+                numberOfFailedNodes++;
+            }
+
             //Create Arrow to parent
             if (currentNode.Parent != null)
             {
@@ -188,6 +197,12 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             new Vector3(0, CurrentVerticalPosition, -20),
             zoomFactor,
             TimeBetweenRows);
+
+        // FB posts data
+        if (numberOfFailedNodes > 0)
+        {
+            fBCounterUI.AddFBPosts(numberOfFailedNodes);
+        }
 
         //Prepare next row
         CurrentVerticalPosition -= VerticalSpacing;

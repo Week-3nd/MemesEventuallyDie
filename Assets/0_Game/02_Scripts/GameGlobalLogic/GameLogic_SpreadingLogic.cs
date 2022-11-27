@@ -46,6 +46,9 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
     public GameLogic_CommAndMemeInfluence influence;
     public CardsCreation cardsCreation;
 
+    //output
+    public NewFansCounter newFansCounter;
+
 
     private void Start()
     {
@@ -167,6 +170,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
         }
         //dataKeeper.InitializeCommunityLists();
         dataKeeper.AddFansToList(NewFans);
+        newFansCounter.SetFansCount(NewFans.Count);
 
         List<TreeNode> Sharers = new List<TreeNode>();
         foreach (TreeNode node in SocialNetwork.treeNodesList)

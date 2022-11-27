@@ -148,4 +148,4 @@ MonoBehaviour:
   baseMinBotShares: 2
   baseMaxBotShares: 3
   extendedMinBotShares: 1
-  extendedMaxBotShares: 5
+  extendedMaxBotShares: 6

@@ -19,6 +19,8 @@ public class ScoreDisplay : MonoBehaviour
     private Vector3 CameraLastPosition = new Vector3();
     private float CameraLastZoomFactor = 4.0f;
 
+    public NewFansCounter newFansCounter;
+
 
     private void Update()
     {
@@ -40,6 +42,7 @@ public class ScoreDisplay : MonoBehaviour
             else if (Timer >= IncrementInterval && LastScoreUpdateDone && DisplayedScore == RealScore)
             {
                 ObjectToActivateUponFinish.SetActive(true);
+                newFansCounter.DisplayNewFans();
                 StopCalculating = true;
                 Camera.SetTarget(CameraLastPosition, CameraLastZoomFactor, CameraLastDezoomDuration);
 
