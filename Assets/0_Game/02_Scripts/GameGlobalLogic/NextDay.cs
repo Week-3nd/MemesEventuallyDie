@@ -10,6 +10,6 @@ public class NextDay : MonoBehaviour
     
     void Start()
     {
-        this.GetComponent<TextMeshPro>().text = new string("Day <size="+dayNumberSize+"><b>" + DataKeeperReference.GetCurrentDay().ToString()+ "</b></size>");
+        this.GetComponent<TextMeshProUGUI>().text = new string("Day <size="+dayNumberSize+"><b>" + DataKeeperReference.GetCurrentDay().ToString()+ "</b></size>");
     }
 }

@@ -9,6 +9,7 @@ public class OnHoverShowObject : MonoBehaviour
 
     public GameObject descriptionObject;
     public float delayToShowDescription;
+    public bool isCard = false;
     private float timer = 0;
     private StateAndFeedbacks cardState;
     private Camera theCamera;
@@ -16,7 +17,10 @@ public class OnHoverShowObject : MonoBehaviour
     private void Start()
     {
         theCamera = FindObjectOfType<Camera>();
-        cardState = this.GetComponentInParent<StateAndFeedbacks>();
+        if (isCard)
+        {
+            cardState = this.GetComponentInParent<StateAndFeedbacks>();
+        }
     }
 
     private void Update()
@@ -29,7 +33,10 @@ public class OnHoverShowObject : MonoBehaviour
     private void OnMouseOver()
     {
         timer += Time.deltaTime;
-        cardState.isHovered = true;
+        if (isCard)
+        {
+            cardState.isHovered = true;
+        }
 
         if (timer >= delayToShowDescription)
         {
@@ -40,12 +47,20 @@ public class OnHoverShowObject : MonoBehaviour
     private void OnMouseExit()
     {
         timer = 0;
-        cardState.isHovered = false;
+        if (isCard)
+        {
+            cardState.isHovered = false;
+
+        }
         descriptionObject.SetActive(false);
     }
 
     private void OnMouseUpAsButton()
     {
-        cardState.OnMouseUpAsButton();
+        if (isCard)
+        {
+            cardState.OnMouseUpAsButton();
+
+        }
     }
 }

@@ -21,7 +21,7 @@ public class CardDataVisualize : MonoBehaviour
         }
         else if (virality == 0)
         {
-            viralityScore.text = "<color=" + ToRGBHex(neutralColor) + ">+" + virality.ToString();
+            viralityScore.text = "<color=" + ToRGBHex(neutralColor) + ">" + virality.ToString();
         }
         else
         {
@@ -35,7 +35,7 @@ public class CardDataVisualize : MonoBehaviour
         }
         else if (cringeness == 0)
         {
-            cringenessScore.text = "<color=" + ToRGBHex(neutralColor) + ">+" + cringeness.ToString();
+            cringenessScore.text = "<color=" + ToRGBHex(neutralColor) + ">" + cringeness.ToString();
         }
         else
         {
