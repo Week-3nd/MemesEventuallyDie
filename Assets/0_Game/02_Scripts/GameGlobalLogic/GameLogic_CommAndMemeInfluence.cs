@@ -22,7 +22,8 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
     [Tooltip("If number of affected Fans reach X value, then use Y as low share probability, Z as high share probability.")]
     public List<Vector3> clickbaitSpecialists = new List<Vector3>(); // base : x = 0, y = 0.2, z = 0.28
 
-
+    [Tooltip("If number of affected Fans reach X value, then width limit = Y.")]
+    public List<Vector2Int> clickbaitSpecialistsInvinsible = new List<Vector2Int>();
 
     public int GetBotsAmount(int numberOfBotDevFans)
     {
@@ -142,5 +143,21 @@ public class GameLogic_CommAndMemeInfluence : MonoBehaviour
             }
         }
         return new Vector2(clickbaitSpecialists[clickbaitSpecialists.Count - 1].y, clickbaitSpecialists[clickbaitSpecialists.Count - 1].z);
+    }
+
+    public int GetSpreadWidth(int numberOfClickbaitSpecialists)
+    {
+        foreach (Vector2Int currentThreshold in clickbaitSpecialistsInvinsible)
+        {
+            if (currentThreshold.x == numberOfClickbaitSpecialists)
+            {
+                return currentThreshold.y;
+            }
+            if (currentThreshold.x > numberOfClickbaitSpecialists)
+            {
+                return clickbaitSpecialistsInvinsible[clickbaitSpecialistsInvinsible.IndexOf(currentThreshold) - 1].y;
+            }
+        }
+        return clickbaitSpecialistsInvinsible[clickbaitSpecialistsInvinsible.Count - 1].y;
     }
 }

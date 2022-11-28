@@ -28,6 +28,22 @@ public class CardsInfluenceManager : MonoBehaviour
         influence = FindObjectOfType<GameLogic_CommAndMemeInfluence>();
         cardsCreation = FindObjectOfType<CardsCreation>();
 
+        // calculating which descriptions to show and which not to
+        List<int> fullStatsList = cardsCreation.GetRandomStatsList();
+        List<int> usedStatsList = new();
+        //usedStatsList.Add(0); // dummy item to avoid errors
+        int numberOfRevealedStats = influence.GetRevealedInfosAmount(dataKeeper.GetSpecificCommunityList(5).Count);
+        //Debug.Log("Number of meme analysts : " + dataKeeper.GetSpecificCommunityList(5).Count);
+        for (int i = 0; i < numberOfRevealedStats; i++)
+        {
+            usedStatsList.Add(fullStatsList[i]);
+        }
+         /*
+        for (int i = 0; i < usedStatsList.Count; i++)
+        {
+            Debug.Log(usedStatsList[i]);
+        } // */
+
         //Activating the correct object
         int numbersOfCards = influence.GetMemesAmount(dataKeeper.GetSpecificCommunityList(2).Count);
 
@@ -62,6 +78,7 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
                 cardData.botShare);
+            cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
         foreach (GameObject cardObject in card2Objects)
@@ -72,6 +89,7 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
                 cardData.botShare);
+            cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
         foreach (GameObject cardObject in card3Objects)
@@ -82,6 +100,7 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
                 cardData.botShare);
+            cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
         foreach (GameObject cardObject in card4Objects)
@@ -92,6 +111,7 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
                 cardData.botShare);
+            cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
         foreach (GameObject cardObject in card5Objects)
@@ -102,7 +122,11 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
                 cardData.botShare);
+            cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
+
+
+
     }
 
 

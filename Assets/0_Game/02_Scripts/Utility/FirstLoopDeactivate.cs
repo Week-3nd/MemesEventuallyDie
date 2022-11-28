@@ -11,7 +11,6 @@ public class FirstLoopDeactivate : MonoBehaviour
     private void Start()
     {
         dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
-        
     }
 
     private void Update()
@@ -20,7 +19,7 @@ public class FirstLoopDeactivate : MonoBehaviour
         {
             if (!dataKeeper.IsFirstLoop())
             {
-                Debug.Log("On est bien en first loop");
+                //Debug.Log("On est bien en first loop");
                 objectToDeactivate.SetActive(true);
             }
             hasTried = true;

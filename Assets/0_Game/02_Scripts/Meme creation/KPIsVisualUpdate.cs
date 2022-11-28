@@ -49,12 +49,15 @@ public class KPIsVisualUpdate : MonoBehaviour
             + "<b></size><size=" + numberSize + ">" + botsAmount.ToString()
             + "</b></size><size=" + textSize + ">" + botsAfterText;
 
-        int avrgVirality =
-            Mathf.RoundToInt(
-                ((influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).x
-                + influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).y)
-                / 2) * 100);
-        viralityUI.text = "<size=" + textSize + ">" + viralityBeforeText
+        /*
+       int avrgVirality =
+           Mathf.RoundToInt(
+               ((influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).x
+               + influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).y)
+               / 2) * 100);
+       // */
+       int avrgVirality = Mathf.RoundToInt(influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).y * 100);
+       viralityUI.text = "<size=" + textSize + ">" + viralityBeforeText
             + "<b></size><size=" + numberSize + ">" + avrgVirality.ToString()
             + "%</b></size><size=" + textSize + ">" + viralityAfterText;
 

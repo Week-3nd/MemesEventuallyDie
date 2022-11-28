@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +12,21 @@ public class CardDataVisualize : MonoBehaviour
     public Color negativeColor;
     public Color positiveColor;
     public Color neutralColor;
+
+    public int cardIndex;
+    public GameObject description01;
+    public GameObject fakeDescription01;
+    public GameObject description02;
+    public GameObject fakeDescription02;
+    public GameObject description03;
+    public GameObject fakeDescription03;
+    private StateAndFeedbacks stateAndFeedbacks;
+
+    private void Start()
+    {
+        //stateAndFeedbacks = GetComponentInParent<StateAndFeedbacks>();
+    }
+
 
     public void PopulateData(int virality, int cringeness, int universality, int botShare)
     {
@@ -75,5 +92,52 @@ public class CardDataVisualize : MonoBehaviour
     {
         f = Mathf.Clamp01(f);
         return (byte)(f * 255);
+    }
+
+
+
+
+    public void DisplayStats(List<int> indexes)
+    {
+        stateAndFeedbacks = GetComponentInParent<StateAndFeedbacks>();
+        //Debug.Log("card index : " + stateAndFeedbacks.cardIndex);
+        List<int> thisCardIndexes = new();
+        thisCardIndexes.Add(1 + (3 * (cardIndex - 1)));
+        thisCardIndexes.Add(2 + (3 * (cardIndex - 1)));
+        thisCardIndexes.Add(3 + (3 * (cardIndex - 1)));
+        //thisCardIndexes.Add(1);
+        /*
+        foreach (int indexxx in thisCardIndexes)
+        {
+            Debug.Log("Card " + cardIndex + ". Contains stat " + indexxx);
+        }
+        // */
+
+        foreach (int index in indexes)
+        {
+            if (thisCardIndexes.Contains(index))
+            {
+                switch (thisCardIndexes.IndexOf(index))
+                {
+                    case 0:
+                        description01.SetActive(true);
+                        cringenessScore.gameObject.SetActive(true);
+                        fakeDescription01.SetActive(false);
+                        break;
+                    case 1:
+                        description02.SetActive(true);
+                        universalityScore.gameObject.SetActive(true);
+                        fakeDescription02.SetActive(false);
+                        break;
+                    case 2:
+                        description03.SetActive(true);
+                        botCompatibilityScore.gameObject.SetActive(true);
+                        fakeDescription03.SetActive(false);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

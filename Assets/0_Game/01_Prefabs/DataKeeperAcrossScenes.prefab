@@ -77,51 +77,50 @@ MonoBehaviour:
   - {x: 0, y: 250, z: 5}
   - {x: 0, y: 500, z: 6}
   - {x: 0, y: 1000, z: 7}
-  - {x: 6, y: 0, z: 0}
-  - {x: 6, y: 4, z: 2}
-  - {x: 6, y: 20, z: 3}
-  - {x: 6, y: 50, z: 4}
-  - {x: 6, y: 100, z: 6}
-  - {x: 6, y: 250, z: 7}
-  - {x: 6, y: 500, z: 8}
-  - {x: 6, y: 1000, z: 10}
-  - {x: 12, y: 0, z: 10}
-  - {x: 12, y: 4, z: 3}
-  - {x: 12, y: 20, z: 4}
-  - {x: 12, y: 50, z: 5}
-  - {x: 12, y: 100, z: 7}
-  - {x: 12, y: 250, z: 8}
-  - {x: 12, y: 500, z: 9}
-  - {x: 12, y: 1000, z: 11}
+  - {x: 5, y: 0, z: 0}
+  - {x: 5, y: 4, z: 2}
+  - {x: 5, y: 20, z: 3}
+  - {x: 5, y: 50, z: 4}
+  - {x: 5, y: 100, z: 6}
+  - {x: 5, y: 250, z: 7}
+  - {x: 5, y: 500, z: 8}
+  - {x: 5, y: 1000, z: 9}
+  - {x: 13, y: 0, z: 0}
+  - {x: 13, y: 4, z: 3}
+  - {x: 13, y: 20, z: 4}
+  - {x: 13, y: 50, z: 5}
+  - {x: 13, y: 100, z: 7}
+  - {x: 13, y: 250, z: 8}
+  - {x: 13, y: 500, z: 10}
+  - {x: 13, y: 1000, z: 12}
   - {x: 100, y: 0, z: 0}
   cringeYogisInfluence:
   - {x: 0, y: 5}
-  - {x: 1, y: 10}
-  - {x: 2, y: 15}
   - {x: 3, y: 20}
-  - {x: 4, y: 26}
   - {x: 5, y: 33}
-  - {x: 6, y: 41}
   - {x: 7, y: 50}
-  - {x: 8, y: 60}
   - {x: 9, y: 71}
-  - {x: 10, y: 83}
   - {x: 11, y: 95}
-  - {x: 12, y: 108}
-  - {x: 13, y: 124}
+  - {x: 13, y: 125}
   memeAnalysts:
   - {x: 0, y: 0}
-  - {x: 1, y: 4}
-  - {x: 2, y: 8}
-  - {x: 4, y: 12}
-  - {x: 7, y: 16}
-  - {x: 11, y: 20}
+  - {x: 1, y: 3}
+  - {x: 2, y: 5}
+  - {x: 4, y: 7}
+  - {x: 7, y: 10}
+  - {x: 11, y: 15}
   clickbaitSpecialists:
-  - {x: 0, y: 0.2, z: 0.28}
-  - {x: 1, y: 0.23, z: 0.31}
-  - {x: 3, y: 0.26, z: 0.33}
-  - {x: 7, y: 0.29, z: 0.36}
-  - {x: 10, y: 0.32, z: 0.4}
+  - {x: 0, y: 0.25, z: 0.34}
+  - {x: 1, y: 0.25, z: 0.36}
+  - {x: 3, y: 0.25, z: 0.38}
+  - {x: 7, y: 0.25, z: 0.39}
+  - {x: 12, y: 0.25, z: 0.4}
+  clickbaitSpecialistsInvinsible:
+  - {x: 0, y: 4}
+  - {x: 1, y: 6}
+  - {x: 3, y: 8}
+  - {x: 7, y: 9}
+  - {x: 12, y: 10}
 --- !u!114 &6005762279339876741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,10 +142,10 @@ MonoBehaviour:
   extendedMinCringenessBonus: -0.03
   extendedMaxCringenessBonus: 0.1
   baseMinUniversality: 4
-  baseMaxUniversality: 5
-  extendedMinUniversality: 4
-  extendedMaxUniversality: 10
+  baseMaxUniversality: 6
+  extendedMinUniversality: 5
+  extendedMaxUniversality: 11
   baseMinBotShares: 2
   baseMaxBotShares: 3
   extendedMinBotShares: 1
-  extendedMaxBotShares: 6
+  extendedMaxBotShares: 7

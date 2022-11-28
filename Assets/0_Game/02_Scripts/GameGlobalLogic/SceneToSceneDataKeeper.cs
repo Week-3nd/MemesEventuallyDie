@@ -38,8 +38,6 @@ public class SceneToSceneDataKeeper : MonoBehaviour
     }
 
 
-
-
     /// <summary>
     /// Community lists contains all fans and their activity. A fan can only be in one of the lists at a time.
     /// </summary>

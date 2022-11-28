@@ -132,6 +132,7 @@ public class DragAndDrop : MonoBehaviour
             ProfileToMove.transform.position = transform.position;
             dataKeeper.MoveUserInCommunityList(GetComponent<AssociatedTreeNode>().associatedNode, transformHolderReference.AugmentIndex);
             //dataKeeper.PrintCommunityListsAmounts();
+            FindObjectOfType<EndFirstLoop>().EndTheFirstLoop();
         }
         else
         {

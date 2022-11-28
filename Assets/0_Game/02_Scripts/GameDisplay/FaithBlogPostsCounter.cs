@@ -16,8 +16,8 @@ public class FaithBlogPostsCounter : MonoBehaviour
         GameLogic_CommAndMemeInfluence influence = FindObjectOfType<GameLogic_CommAndMemeInfluence>();
         SceneToSceneDataKeeper dataKeeper = FindObjectOfType<SceneToSceneDataKeeper>();
         authorizedPosts = influence.GetAuthorizedFailsAmount(dataKeeper.GetSpecificCommunityList(4).Count);
-        Debug.Log("List 4 contains " + dataKeeper.GetSpecificCommunityList(4).Count + " Fans");
-        Debug.Log("So authorized posts are : " + authorizedPosts);
+        //Debug.Log("List 4 contains " + dataKeeper.GetSpecificCommunityList(4).Count + " Fans");
+        //Debug.Log("So authorized posts are : " + authorizedPosts);
         fBCounter = this.GetComponent<TextMeshProUGUI>();
         DisplayText();
     }

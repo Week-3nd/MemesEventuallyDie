@@ -52,13 +52,16 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
 
     private void Start()
     {
+         /*
+        Debug.Log("Day " + dataKeeper.GetCurrentDay());
         // Ensuring the selected Card is the good one
         Debug.Log("CARD STATS"
             + " | Virality : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].viralityBonus.ToString()
             + " | Cringeness : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].cringenessBonus.ToString()
             + " | Universality : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].universality.ToString()
             + " | Bot shares : " + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].botShare.ToString());
-        
+        // */
+
         //taking data from external influences
         highShareChances =
             influence.GetShareProbability(dataKeeper.GetSpecificCommunityList(6).Count).x
@@ -89,15 +92,18 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
         BotTentativesOfReshare =
             cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].botShare;
 
+        sharersPerGenThreshold = influence.GetSpreadWidth(dataKeeper.GetSpecificCommunityList(6).Count);
+
         // Logging quasi all stats
-        // /*
+         /*
         Debug.Log("highShareChances : " + highShareChances
             + " | LowShareChances : " + LowShareChances
             + " | FailureProbability : " + FailureProbability
             + " | AuthorizedFails : " + AuthorizedFails
             + " | InvincibleGenerations : " + InvincibleGenerations
             + " | First gen bots : " + firstGenBotsAmount
-            + " | BotTentativesOfReshare" + BotTentativesOfReshare);
+            + " | BotTentativesOfReshare : " + BotTentativesOfReshare
+            + " | sharersPerGenThreshold : "+ sharersPerGenThreshold);
         // */
     }
 
@@ -270,13 +276,15 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
         }
 
         //Choisir le taux de partage selon la largeur de l'arbre (si égal au seuil : on applique le taux bas)
-        if (numberOfShares < sharersPerGenThreshold)
+        if (numberOfShares > sharersPerGenThreshold)
         {
             SuccessProbability = highShareChances;
+            Debug.Log("Share is now high, at " + highShareChances + " (as there was " + numberOfShares + "sharers, threshold is at " + sharersPerGenThreshold + ")");
         }
         else
         {
             SuccessProbability = LowShareChances;
+            Debug.Log("Share is now low, at " + LowShareChances + " (as there was " + numberOfShares + "sharers, threshold is at " + sharersPerGenThreshold + ")");
         }
 
          /*
