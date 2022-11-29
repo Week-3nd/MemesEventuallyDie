@@ -279,12 +279,12 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
         if (numberOfShares > sharersPerGenThreshold)
         {
             SuccessProbability = highShareChances;
-            Debug.Log("Share is now high, at " + highShareChances + " (as there was " + numberOfShares + "sharers, threshold is at " + sharersPerGenThreshold + ")");
+            Debug.Log("Share is now high, at " + highShareChances + " (as there was " + numberOfShares + " sharers, threshold is at " + sharersPerGenThreshold + ")");
         }
         else
         {
             SuccessProbability = LowShareChances;
-            Debug.Log("Share is now low, at " + LowShareChances + " (as there was " + numberOfShares + "sharers, threshold is at " + sharersPerGenThreshold + ")");
+            Debug.Log("Share is now low, at " + LowShareChances + " (as there was " + numberOfShares + " sharers, threshold is at " + sharersPerGenThreshold + ")");
         }
 
          /*

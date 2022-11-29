@@ -6,9 +6,10 @@ using TMPro;
 public class FansDisplay : MonoBehaviour
 {
     public SceneToSceneDataKeeper dataKeeper;
+    public float totalFansTextSize;
 
     void Start()
     {
-        this.GetComponent<TextMeshPro>().text = "<size=14><b>" + dataKeeper.GetFansList().Count.ToString() + "</b></size> total fans";
+        this.GetComponent<TextMeshPro>().text = "<size=" + totalFansTextSize + "><b>" + dataKeeper.GetFansList().Count.ToString() + "</b></size> total fans";
     }
 }

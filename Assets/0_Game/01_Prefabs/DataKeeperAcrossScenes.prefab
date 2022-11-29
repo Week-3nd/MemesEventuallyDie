@@ -62,8 +62,10 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 1, y: 1}
   - {x: 3, y: 2}
-  - {x: 6, y: 3}
-  - {x: 9, y: 4}
+  - {x: 5, y: 3}
+  - {x: 7, y: 4}
+  - {x: 9, y: 5}
+  - {x: 11, y: 6}
   memersCommittee:
   - {x: 0, y: 3}
   - {x: 2, y: 4}
@@ -77,22 +79,22 @@ MonoBehaviour:
   - {x: 0, y: 250, z: 5}
   - {x: 0, y: 500, z: 6}
   - {x: 0, y: 1000, z: 7}
-  - {x: 5, y: 0, z: 0}
-  - {x: 5, y: 4, z: 2}
-  - {x: 5, y: 20, z: 3}
-  - {x: 5, y: 50, z: 4}
-  - {x: 5, y: 100, z: 6}
-  - {x: 5, y: 250, z: 7}
-  - {x: 5, y: 500, z: 8}
-  - {x: 5, y: 1000, z: 9}
-  - {x: 13, y: 0, z: 0}
-  - {x: 13, y: 4, z: 3}
-  - {x: 13, y: 20, z: 4}
-  - {x: 13, y: 50, z: 5}
-  - {x: 13, y: 100, z: 7}
-  - {x: 13, y: 250, z: 8}
-  - {x: 13, y: 500, z: 10}
-  - {x: 13, y: 1000, z: 12}
+  - {x: 3, y: 0, z: 0}
+  - {x: 3, y: 4, z: 2}
+  - {x: 3, y: 20, z: 3}
+  - {x: 3, y: 50, z: 4}
+  - {x: 3, y: 100, z: 6}
+  - {x: 3, y: 250, z: 7}
+  - {x: 3, y: 500, z: 8}
+  - {x: 3, y: 1000, z: 9}
+  - {x: 10, y: 0, z: 0}
+  - {x: 10, y: 4, z: 3}
+  - {x: 10, y: 20, z: 4}
+  - {x: 10, y: 50, z: 5}
+  - {x: 10, y: 100, z: 7}
+  - {x: 10, y: 250, z: 8}
+  - {x: 10, y: 500, z: 10}
+  - {x: 10, y: 1000, z: 12}
   - {x: 100, y: 0, z: 0}
   cringeYogisInfluence:
   - {x: 0, y: 5}
@@ -110,17 +112,19 @@ MonoBehaviour:
   - {x: 7, y: 10}
   - {x: 11, y: 15}
   clickbaitSpecialists:
-  - {x: 0, y: 0.25, z: 0.34}
-  - {x: 1, y: 0.25, z: 0.36}
-  - {x: 3, y: 0.25, z: 0.38}
-  - {x: 7, y: 0.25, z: 0.39}
-  - {x: 12, y: 0.25, z: 0.4}
+  - {x: 0, y: 0.3, z: 0.3}
+  - {x: 1, y: 0.3, z: 0.32}
+  - {x: 3, y: 0.3, z: 0.34}
+  - {x: 5, y: 0.3, z: 0.35}
+  - {x: 8, y: 0.3, z: 0.36}
+  - {x: 11, y: 0.3, z: 0.37}
   clickbaitSpecialistsInvinsible:
   - {x: 0, y: 4}
   - {x: 1, y: 6}
   - {x: 3, y: 8}
-  - {x: 7, y: 9}
-  - {x: 12, y: 10}
+  - {x: 5, y: 10}
+  - {x: 8, y: 12}
+  - {x: 11, y: 14}
 --- !u!114 &6005762279339876741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,11 +140,11 @@ MonoBehaviour:
   baseMinViralityBonus: -0.01
   baseMaxViralityBonus: 0.03
   extendedMinViralityBonus: -0.06
-  extendedMaxViralityBonus: 0.07
+  extendedMaxViralityBonus: 0.09
   baseMinCringenessBonus: -0.01
   baseMaxCringenessBonus: 0.02
   extendedMinCringenessBonus: -0.03
-  extendedMaxCringenessBonus: 0.1
+  extendedMaxCringenessBonus: 0.07
   baseMinUniversality: 4
   baseMaxUniversality: 6
   extendedMinUniversality: 5
