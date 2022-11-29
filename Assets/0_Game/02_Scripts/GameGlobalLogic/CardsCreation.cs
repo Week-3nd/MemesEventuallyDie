@@ -38,10 +38,11 @@ public class CardsCreation : MonoBehaviour
     {
         // first 3 cards have basic tradeoffs, card 4 & 5 have more random stats
         cards = new List<CardData>();
+        List<int> randomIndexes = GenerateRandomMemeIndexes(15);
         for (int i = 0; i < 5; i++)
         {
             CardData newCard = new CardData();
-
+            newCard.memeSpriteIndex = randomIndexes[i];
             switch (i)
             {
                 case < 3:
@@ -66,10 +67,29 @@ public class CardsCreation : MonoBehaviour
                     newCard.botShare = Random.Range(extendedMinBotShares, extendedMaxBotShares + 1);
                     break;
             }
-
+            
             cards.Add(newCard);
         }
         //Debug.Log("Cards generated. Amount : " + cards.Count);
+    }
+
+    private List<int> GenerateRandomMemeIndexes(int range)
+    {
+        List<int> randomIndexes = new();
+        for (int i = 0; i < range; i++)
+        {
+            randomIndexes.Add(i);
+        }
+        int n = randomIndexes.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            int value = randomIndexes[k];
+            randomIndexes[k] = randomIndexes[n];
+            randomIndexes[n] = value;
+        }
+        return randomIndexes;
     }
 
     public List<CardData> GetCardsList()

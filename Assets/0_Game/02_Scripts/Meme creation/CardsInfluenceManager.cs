@@ -77,7 +77,8 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.viralityBonus * 100),
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
-                cardData.botShare);
+                cardData.botShare,
+                cardData.memeSpriteIndex);
             cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
@@ -88,7 +89,8 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.viralityBonus * 100),
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
-                cardData.botShare);
+                cardData.botShare,
+                cardData.memeSpriteIndex);
             cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
@@ -99,7 +101,8 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.viralityBonus * 100),
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
-                cardData.botShare);
+                cardData.botShare,
+                cardData.memeSpriteIndex);
             cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
@@ -110,7 +113,8 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.viralityBonus * 100),
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
-                cardData.botShare);
+                cardData.botShare,
+                cardData.memeSpriteIndex);
             cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 
@@ -121,7 +125,8 @@ public class CardsInfluenceManager : MonoBehaviour
                 Mathf.RoundToInt(cardData.viralityBonus * 100),
                 Mathf.RoundToInt(cardData.cringenessBonus * 100),
                 cardData.universality,
-                cardData.botShare);
+                cardData.botShare,
+                cardData.memeSpriteIndex);
             cardObject.GetComponentInChildren<CardDataVisualize>().DisplayStats(usedStatsList);
         }
 

@@ -1660,6 +1660,23 @@ MonoBehaviour:
   fakeDescription02: {fileID: 5207041250823946811}
   description03: {fileID: 827935077771340728}
   fakeDescription03: {fileID: 4001338476738498878}
+  memeSprite: {fileID: 1731032788238196427}
+  memes:
+  - {fileID: 21300000, guid: eb4cce86a4ae48140bc3124ca76f8a7c, type: 3}
+  - {fileID: 21300000, guid: 5feabd8e60f54e649acc7809adc16e85, type: 3}
+  - {fileID: 21300000, guid: 4b9c73d8ebb144b4090add5b22b1c72b, type: 3}
+  - {fileID: 21300000, guid: 1f8f709d3786f3b44a12151b08df857b, type: 3}
+  - {fileID: 21300000, guid: a10498f03779da7498bac54e63c3eba0, type: 3}
+  - {fileID: 21300000, guid: d7c2dc4584f508a48b5343e53d55266d, type: 3}
+  - {fileID: 21300000, guid: 206fa126691d4214590141be8604467f, type: 3}
+  - {fileID: 21300000, guid: c90b63f6b5b582f4eb1f5f903d7a145e, type: 3}
+  - {fileID: 21300000, guid: 696805548f50ec84fbdab711887dcf4f, type: 3}
+  - {fileID: 21300000, guid: 4edb6a319a1e52f4ab9100cd2eb0ac35, type: 3}
+  - {fileID: 21300000, guid: 7dab31e0a612edf46a92174fbb764e90, type: 3}
+  - {fileID: 21300000, guid: ea3d9c0bafa81d9439274650725fd3d3, type: 3}
+  - {fileID: 21300000, guid: 293114342c33c3044afb53bec0a291b9, type: 3}
+  - {fileID: 21300000, guid: 0a3f1123250130e478deac9e58d1165f, type: 3}
+  - {fileID: 21300000, guid: 79620526143dd75468987e34342bb06e, type: 3}
 --- !u!1 &5207041250823946811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2299,7 @@ Transform:
   m_GameObject: {fileID: 6220876702131647832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5716083041521143481}
@@ -2329,12 +2346,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: eb4cce86a4ae48140bc3124ca76f8a7c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

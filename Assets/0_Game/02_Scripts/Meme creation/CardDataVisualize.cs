@@ -22,13 +22,16 @@ public class CardDataVisualize : MonoBehaviour
     public GameObject fakeDescription03;
     private StateAndFeedbacks stateAndFeedbacks;
 
+    public SpriteRenderer memeSprite;
+    public Sprite[] memes;
+
     private void Start()
     {
         //stateAndFeedbacks = GetComponentInParent<StateAndFeedbacks>();
     }
 
 
-    public void PopulateData(int virality, int cringeness, int universality, int botShare)
+    public void PopulateData(int virality, int cringeness, int universality, int botShare, int memeIndex)
     {
         
         // use sign as it's an addition to a base value
@@ -79,6 +82,8 @@ public class CardDataVisualize : MonoBehaviour
         {
             botCompatibilityScore.text = "<color=" + ToRGBHex(positiveColor) + ">" + botShare.ToString();
         }
+
+        memeSprite.sprite = memes[memeIndex];
 
     }
 

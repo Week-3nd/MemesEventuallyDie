@@ -8,4 +8,6 @@ public class CardData
     public float cringenessBonus;
     public int universality;
     public int botShare;
+
+    public int memeSpriteIndex;
 }
