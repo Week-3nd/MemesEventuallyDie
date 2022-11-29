@@ -1438,7 +1438,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2080246565}
         m_TargetAssemblyTypeName: CardsCreation, Assembly-CSharp
-        m_MethodName: GenerateRandomStatsArray
+        m_MethodName: GenerateRandomStatsList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

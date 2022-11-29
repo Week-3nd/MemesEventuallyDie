@@ -675,7 +675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +25
+  m_text: +35
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
   m_sharedMaterial: {fileID: 5113751411945509705, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
@@ -1333,9 +1333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+30
-
-'
+  m_text: +40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
   m_sharedMaterial: {fileID: 5113751411945509705, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
@@ -2365,8 +2363,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2862,7 +2860,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3681,7 +3679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +17
+  m_text: +25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
   m_sharedMaterial: {fileID: 5113751411945509705, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
@@ -4200,7 +4198,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8145505170971171513, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
       propertyPath: m_text
-      value: +13
+      value: '+20
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145505170971171513, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf2a7c0bf273ca428a24898d71892d8, type: 3}
@@ -7719,9 +7723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+21
-
-'
+  m_text: +30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}
   m_sharedMaterial: {fileID: 5113751411945509705, guid: ab2d3bc042b81c046bd5f8a6f06c31f3, type: 2}

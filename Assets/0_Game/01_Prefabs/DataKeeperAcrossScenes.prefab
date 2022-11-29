@@ -79,14 +79,14 @@ MonoBehaviour:
   - {x: 0, y: 250, z: 5}
   - {x: 0, y: 500, z: 6}
   - {x: 0, y: 1000, z: 7}
-  - {x: 3, y: 0, z: 0}
-  - {x: 3, y: 4, z: 2}
-  - {x: 3, y: 20, z: 3}
-  - {x: 3, y: 50, z: 4}
-  - {x: 3, y: 100, z: 6}
-  - {x: 3, y: 250, z: 7}
-  - {x: 3, y: 500, z: 8}
-  - {x: 3, y: 1000, z: 9}
+  - {x: 4, y: 0, z: 0}
+  - {x: 4, y: 4, z: 2}
+  - {x: 4, y: 20, z: 3}
+  - {x: 4, y: 50, z: 4}
+  - {x: 4, y: 100, z: 6}
+  - {x: 4, y: 250, z: 7}
+  - {x: 4, y: 500, z: 8}
+  - {x: 4, y: 1000, z: 9}
   - {x: 10, y: 0, z: 0}
   - {x: 10, y: 4, z: 3}
   - {x: 10, y: 20, z: 4}
@@ -99,11 +99,11 @@ MonoBehaviour:
   cringeYogisInfluence:
   - {x: 0, y: 5}
   - {x: 3, y: 20}
-  - {x: 5, y: 33}
-  - {x: 7, y: 50}
-  - {x: 9, y: 71}
-  - {x: 11, y: 95}
-  - {x: 13, y: 125}
+  - {x: 5, y: 40}
+  - {x: 7, y: 65}
+  - {x: 9, y: 95}
+  - {x: 11, y: 130}
+  - {x: 13, y: 170}
   memeAnalysts:
   - {x: 0, y: 0}
   - {x: 1, y: 3}
@@ -114,17 +114,17 @@ MonoBehaviour:
   clickbaitSpecialists:
   - {x: 0, y: 0.3, z: 0.3}
   - {x: 1, y: 0.3, z: 0.32}
-  - {x: 3, y: 0.3, z: 0.34}
-  - {x: 5, y: 0.3, z: 0.35}
-  - {x: 8, y: 0.3, z: 0.36}
-  - {x: 11, y: 0.3, z: 0.37}
+  - {x: 3, y: 0.29, z: 0.34}
+  - {x: 5, y: 0.29, z: 0.35}
+  - {x: 8, y: 0.28, z: 0.36}
+  - {x: 11, y: 0.27, z: 0.37}
   clickbaitSpecialistsInvinsible:
   - {x: 0, y: 4}
-  - {x: 1, y: 6}
-  - {x: 3, y: 8}
-  - {x: 5, y: 10}
-  - {x: 8, y: 12}
-  - {x: 11, y: 14}
+  - {x: 1, y: 5}
+  - {x: 3, y: 7}
+  - {x: 5, y: 8}
+  - {x: 8, y: 10}
+  - {x: 11, y: 12}
 --- !u!114 &6005762279339876741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   extendedMaxViralityBonus: 0.09
   baseMinCringenessBonus: -0.01
   baseMaxCringenessBonus: 0.02
-  extendedMinCringenessBonus: -0.03
+  extendedMinCringenessBonus: -0.02
   extendedMaxCringenessBonus: 0.07
   baseMinUniversality: 4
   baseMaxUniversality: 6
