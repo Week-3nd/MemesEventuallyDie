@@ -155,6 +155,10 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
             {
                 NewNode.GetComponentInChildren<ProfilePictureGeneration>().PopulateProfileBorder(3);
             }
+            if (currentNode.isBot)
+            {
+                NewNode.GetComponentInChildren<ProfilePictureGeneration>().MakeBot();
+            }
             NewNode.GetComponent<CircleCollider2D>().enabled = false;
 
 

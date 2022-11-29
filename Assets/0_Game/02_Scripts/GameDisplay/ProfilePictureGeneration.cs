@@ -66,6 +66,19 @@ public class ProfilePictureGeneration : MonoBehaviour
         tShirt.color = tShirtColors[tShirtColorIndex];
     }
 
+    public void MakeBot()
+    {
+        buste.gameObject.SetActive(false);
+        face.sprite = faces[10];
+        face.color = Color.white;
+        mouth.gameObject.SetActive(false);
+        nose.gameObject.SetActive(false);
+        eye.gameObject.SetActive(false);
+        hair.gameObject.SetActive(false);
+        ear.gameObject.SetActive(false);
+        background.color = backgroundColors[Random.Range(0, backgroundColors.Count)];
+    }
+
     public void PopulateProfileBorder(int shareState)
     {
         coloredOutline.color = outlineColors[shareState];

@@ -13,6 +13,9 @@ public class NewFansCounter : MonoBehaviour
     private bool canCount = false;
     private TextMeshProUGUI uGUI;
 
+    public float fanNumberSize;
+    public float fanTextSize;
+
 
     private void Start()
     {
@@ -29,7 +32,7 @@ public class NewFansCounter : MonoBehaviour
             {
                 remainingFans = fansCount - displayedFans;
                 displayedFans += Mathf.Clamp(Mathf.RoundToInt(timer / timeBetweenIncrements), 0, remainingFans); // si on a passé plus du double de temps on ajoute 2
-                uGUI.text = displayedFans.ToString();
+                uGUI.text = "<b><size="+ fanNumberSize +">"+ displayedFans.ToString()+"</b></size><size="+ fanTextSize+"> fans";
                 timer = 0;
             }
         }

@@ -31,6 +31,6 @@ public class FaithBlogPostsCounter : MonoBehaviour
     private void DisplayText()
     {
         fBCounter.text = "<b><size=" + numberOfPostsTextSize + ">" + currentNumberOfPosts
-            + "</b></size><size=" + maximumPostsTextSize + "> /" + authorizedPosts;
+            + "</size><size=" + maximumPostsTextSize + "> /" + authorizedPosts;
     }
 }
