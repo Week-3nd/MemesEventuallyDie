@@ -8,7 +8,7 @@ public class ScoreDisplay : MonoBehaviour
     private int StoredScore = 0;
     public TextMeshProUGUI ScoreText;
     public AnimationCurvesStorer SpeedAccordingToStoredScoreReference;
-    public GameObject ObjectToActivateUponFinish;
+    //public GameObject ObjectToActivateUponFinish;
     private float Timer = 0.0f;
     private float IncrementInterval = 10.0f;
     private bool LastScoreUpdateDone = false;
@@ -20,6 +20,8 @@ public class ScoreDisplay : MonoBehaviour
     private float CameraLastZoomFactor = 4.0f;
 
     public NewFansCounter newFansCounter;
+    public FaithBlogPostsCounter FaithBlogPostsCounter;
+
 
 
     private void Update()
@@ -41,11 +43,12 @@ public class ScoreDisplay : MonoBehaviour
             }
             else if (Timer >= IncrementInterval && LastScoreUpdateDone && DisplayedScore == RealScore)
             {
-                ObjectToActivateUponFinish.SetActive(true);
+                //ObjectToActivateUponFinish.SetActive(true);
                 newFansCounter.DisplayNewFans();
                 StopCalculating = true;
                 Camera.SetTarget(CameraLastPosition, CameraLastZoomFactor, CameraLastDezoomDuration);
-
+                Timer = 0.0f;
+                Camera.NextZoomIsLast(FaithBlogPostsCounter.HasStoppedOfCringe());
             }
         }
         

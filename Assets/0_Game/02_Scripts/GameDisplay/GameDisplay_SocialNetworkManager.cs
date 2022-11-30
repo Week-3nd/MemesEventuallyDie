@@ -43,6 +43,8 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     public int FanScore = 3;
     public ScoreDisplay ScoreDisplayUI;
     public FaithBlogPostsCounter fBCounterUI;
+    private int faithBlogScore = 0;
+    private int newFansAmount = 0;
 
 
     
@@ -72,6 +74,16 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 ScoreDisplayUI.LastScoreUpdate(
                     new Vector3(0, ((CurrentVerticalPosition + VerticalSpacing) / 2), -20),
                     (Mathf.Abs(CurrentVerticalPosition) + VerticalSpacing) * (16/9)/2);
+
+                // logging important data in history
+                DayData todaysData = new();
+                todaysData.Day = FindObjectOfType<SceneToSceneDataKeeper>().GetCurrentDay();
+                todaysData.Score = Score;
+                todaysData.NewFans = newFansAmount;
+                todaysData.FaithblogPosts = faithBlogScore;
+                EndScreenInfoManager endScreenInfoManager = FindObjectOfType<EndScreenInfoManager>();
+                endScreenInfoManager.AddDayData(todaysData);
+                Debug.Log("Added day " + FindObjectOfType<SceneToSceneDataKeeper>().GetCurrentDay() + " data in history");
             }
         }
     }
@@ -169,6 +181,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 if (currentNode.isFan)
                 {
                     Score += FanScore;
+                    newFansAmount += 1;
                 }
                 else
                 {
@@ -206,6 +219,7 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         if (numberOfFailedNodes > 0)
         {
             fBCounterUI.AddFBPosts(numberOfFailedNodes);
+            faithBlogScore += numberOfFailedNodes;
         }
 
         //Prepare next row
@@ -394,5 +408,10 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         CurrentVerticalPosition -= VerticalSpacing;
     }
 
+
+    public float GetScore()
+    {
+        return Score;
+    }
 
 }

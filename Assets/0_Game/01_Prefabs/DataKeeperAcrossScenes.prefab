@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 941604719774237923}
   - component: {fileID: 3065144903998031592}
   - component: {fileID: 6005762279339876741}
+  - component: {fileID: 368738865254208009}
   m_Layer: 0
   m_Name: DataKeeperAcrossScenes
   m_TagString: Untagged
@@ -100,10 +101,10 @@ MonoBehaviour:
   - {x: 0, y: 5}
   - {x: 3, y: 20}
   - {x: 5, y: 40}
-  - {x: 7, y: 65}
-  - {x: 9, y: 95}
-  - {x: 11, y: 130}
-  - {x: 13, y: 170}
+  - {x: 7, y: 70}
+  - {x: 9, y: 109}
+  - {x: 11, y: 157}
+  - {x: 13, y: 215}
   memeAnalysts:
   - {x: 0, y: 0}
   - {x: 1, y: 3}
@@ -114,10 +115,10 @@ MonoBehaviour:
   clickbaitSpecialists:
   - {x: 0, y: 0.3, z: 0.3}
   - {x: 1, y: 0.3, z: 0.32}
-  - {x: 3, y: 0.29, z: 0.34}
-  - {x: 5, y: 0.29, z: 0.35}
-  - {x: 8, y: 0.28, z: 0.36}
-  - {x: 11, y: 0.27, z: 0.37}
+  - {x: 3, y: 0.3, z: 0.34}
+  - {x: 5, y: 0.3, z: 0.35}
+  - {x: 8, y: 0.29, z: 0.36}
+  - {x: 11, y: 0.28, z: 0.37}
   clickbaitSpecialistsInvinsible:
   - {x: 0, y: 4}
   - {x: 1, y: 5}
@@ -153,3 +154,15 @@ MonoBehaviour:
   baseMaxBotShares: 3
   extendedMinBotShares: 1
   extendedMaxBotShares: 7
+--- !u!114 &368738865254208009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501460680489702770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170a06e63c0ecc4480d3899668c4b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

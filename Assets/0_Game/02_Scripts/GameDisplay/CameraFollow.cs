@@ -22,9 +22,19 @@ public class CameraFollow : MonoBehaviour
     public int RezoomFactor = 2;
     private float RezoomRate = 1.0f;
 
-    // at the end of the spreading : use the other camera script
-    private bool hasToSwitch = false;
+    // on spreading end : one of the 2 will be displayed
+    public GameObject cringeEnd;
+    public GameObject lonelyEnd;
+    public GameObject happyEnding;
+    public GameObject nextButton;
+    public GameObject winNextButton;
+    private bool isLastZoom = false;
+    private bool isCringeEnd;
+    private float popUpTimer = 0.0f;
+    public float timeToPrintEndBandeau = 1.5f;
 
+    private bool doStuff = true;
+    private bool isWin = false;
 
 
     // Start is called before the first frame update
@@ -38,31 +48,68 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Time scale calculation
-        if (ZoomIterationTimer <= DurationToNextZoom)
+        if (doStuff)
         {
-            ZoomIterationTimer += Time.deltaTime;
-            TimeFactor = ZoomIterationTimer / DurationToNextZoom;
-
-            //Position
-            this.transform.position = new Vector3(
-                Mathf.Lerp(LastPosition.x, TargetPosition.x, TimeFactor),
-                Mathf.Lerp(LastPosition.y, TargetPosition.y, TimeFactor),
-                Mathf.Lerp(LastPosition.z, TargetPosition.z, TimeFactor));
-
-            //Zoom
-            this.GetComponent<Camera>().orthographicSize =
-                Mathf.Lerp(LastZoom, TargetZoom, TimeFactor);
-        }
-        else if (ZoomIterationTimer > DurationToNextZoom)
-        {
-            this.transform.position = TargetPosition;
-            this.GetComponent<Camera>().orthographicSize = TargetZoom;
-
-            if (hasToSwitch)
+            //Time scale calculation
+            if (ZoomIterationTimer <= DurationToNextZoom)
             {
-                this.GetComponent<RTSCamera>().enabled = true;
-                this.enabled = false;
+                ZoomIterationTimer += Time.deltaTime;
+                TimeFactor = ZoomIterationTimer / DurationToNextZoom;
+
+                //Position
+                this.transform.position = new Vector3(
+                    Mathf.Lerp(LastPosition.x, TargetPosition.x, TimeFactor),
+                    Mathf.Lerp(LastPosition.y, TargetPosition.y, TimeFactor),
+                    Mathf.Lerp(LastPosition.z, TargetPosition.z, TimeFactor));
+
+                //Zoom
+                this.GetComponent<Camera>().orthographicSize =
+                    Mathf.Lerp(LastZoom, TargetZoom, TimeFactor);
+            }
+            else if (ZoomIterationTimer > DurationToNextZoom)
+            {
+                this.transform.position = TargetPosition;
+                this.GetComponent<Camera>().orthographicSize = TargetZoom;
+
+                // on last zoom : logic showing the bandeau for end condition & next scene button
+                if (isLastZoom)
+                {
+                    if (popUpTimer == 0)
+                    {
+                        if (isWin)
+                        {
+                            happyEnding.SetActive(true);
+                        }
+                        else
+                        {
+                            if (isCringeEnd)
+                            {
+                                cringeEnd.SetActive(true);
+                            }
+                            else
+                            {
+                                lonelyEnd.SetActive(true);
+                            }
+                        }
+                    }
+                    popUpTimer += Time.deltaTime;
+
+                    if (popUpTimer >= timeToPrintEndBandeau)
+                    {
+                        cringeEnd.SetActive(false);
+                        lonelyEnd.SetActive(false);
+                        happyEnding.SetActive(false);
+                        if (isWin)
+                        {
+                            winNextButton.SetActive(true);
+                        }
+                        else
+                        {
+                            nextButton.SetActive(true);
+                        }
+                        doStuff = false;
+                    }
+                }
             }
         }
     }
@@ -94,8 +141,13 @@ public class CameraFollow : MonoBehaviour
         RezoomRate = NewRezoomRate;
     }
 
-    public void SwitchCamera()
+    public void NextZoomIsLast(bool hasStoppedOfCringe) // true = FB, false = no more shares
     {
-        hasToSwitch = true;
+        isLastZoom = true;
+        isCringeEnd = hasStoppedOfCringe;
+        if (FindObjectOfType<GameDisplay_SocialNetworkManager>().GetScore() >= 1000)
+        {
+            isWin = true;
+        }
     }
 }

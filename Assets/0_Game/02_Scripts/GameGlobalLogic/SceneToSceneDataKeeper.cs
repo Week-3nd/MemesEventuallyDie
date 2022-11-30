@@ -19,6 +19,11 @@ public class SceneToSceneDataKeeper : MonoBehaviour
         return DayIndex;
     }
 
+    public void ResetDay()
+    {
+        DayIndex = 0;
+    }
+
 
 
 
@@ -63,6 +68,12 @@ public class SceneToSceneDataKeeper : MonoBehaviour
                 //Debug.Log(i);
             }
         }
+    }
+
+    public void ForceResetCommunityList()
+    {
+        CommunityLists = null;
+        InitializeCommunityLists();
     }
 
     public List<List<TreeNode>> GetCommunityLists()

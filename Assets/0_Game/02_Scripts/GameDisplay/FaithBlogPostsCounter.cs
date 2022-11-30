@@ -33,4 +33,16 @@ public class FaithBlogPostsCounter : MonoBehaviour
         fBCounter.text = "<b><size=" + numberOfPostsTextSize + ">" + currentNumberOfPosts
             + "</size><size=" + maximumPostsTextSize + "> /" + authorizedPosts;
     }
+
+    public bool HasStoppedOfCringe()
+    {
+        if (currentNumberOfPosts >= authorizedPosts)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

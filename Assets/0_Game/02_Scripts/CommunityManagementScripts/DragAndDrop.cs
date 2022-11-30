@@ -151,6 +151,7 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseOver()
     {
         isHovered = true;
+        Debug.Log("Hovered!");
     }
 
     private void OnMouseExit()
