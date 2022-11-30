@@ -58,7 +58,7 @@ public class NewFansCounter : MonoBehaviour
                 }
                 else
                 {
-                    uGUI.text = "<b><size=" + fanNumberSize + ">" + displayedFans.ToString() + "</b></size><size=" + fanTextSize + "> fans";
+                    uGUI.text = "<b><size=" + fanNumberSize + ">" + displayedFans.ToString() + "</b></size><size=" + fanTextSize + "> new fans";
                     audioEvent.Play();
                 }
             }
