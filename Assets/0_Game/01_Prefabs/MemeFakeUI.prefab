@@ -2952,6 +2952,7 @@ GameObject:
   - component: {fileID: 2825145618077759877}
   - component: {fileID: 7855803801005171577}
   - component: {fileID: 3132901533922797945}
+  - component: {fileID: 2538194840346095038}
   m_Layer: 0
   m_Name: MemeFakeUI
   m_TagString: Untagged
@@ -3041,6 +3042,37 @@ MonoBehaviour:
   selectedOrHoveredScale: 1.2
   validateButton: {fileID: 0}
   cardIndex: 0
+  audioEventEmitter: {fileID: 2538194840346095038}
+--- !u!114 &2538194840346095038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043314112629397922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 751032710
+      Data2: 1171235984
+      Data3: -1003153527
+      Data4: -692405169
+    Path: event:/UIElement_Validate
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8047326286601864086
 GameObject:
   m_ObjectHideFlags: 0

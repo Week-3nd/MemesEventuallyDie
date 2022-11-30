@@ -369,6 +369,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 951100236}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 74601739}
         m_TargetAssemblyTypeName: LoadTargetScene, Assembly-CSharp
         m_MethodName: LoadScene
@@ -757,6 +769,7 @@ GameObject:
   - component: {fileID: 312852442}
   - component: {fileID: 312852441}
   - component: {fileID: 312852443}
+  - component: {fileID: 312852444}
   m_Layer: 5
   m_Name: FansNumber
   m_TagString: Untagged
@@ -893,9 +906,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd2d72b48a594a40b6a60d5a23ee483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenIncrements: 0.05
+  timeBetweenIncrements: 0.15
+  delayBeforeCount: 1.7
   fanNumberSize: 50
   fanTextSize: 36
+  audioEvent: {fileID: 312852444}
+  nextButton: {fileID: 1098296687}
+  victoryButton: {fileID: 951100231}
+--- !u!114 &312852444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312852439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -777077443
+      Data2: 1214682013
+      Data3: -642026593
+      Data4: 260805571
+    Path: event:/Score_Fan
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &386402047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1725,7 @@ GameObject:
   - component: {fileID: 951100234}
   - component: {fileID: 951100233}
   - component: {fileID: 951100232}
+  - component: {fileID: 951100236}
   m_Layer: 5
   m_Name: VictoryCanvas
   m_TagString: Untagged
@@ -1768,6 +1816,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &951100236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951100231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 751032710
+      Data2: 1171235984
+      Data3: -1003153527
+      Data4: -692405169
+    Path: event:/UIElement_Validate
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &953699788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2260,7 @@ GameObject:
   - component: {fileID: 1098296690}
   - component: {fileID: 1098296689}
   - component: {fileID: 1098296688}
+  - component: {fileID: 1098296692}
   m_Layer: 5
   m_Name: SpreadEndCanvas
   m_TagString: Untagged
@@ -2271,6 +2350,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1098296692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098296687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 751032710
+      Data2: 1171235984
+      Data3: -1003153527
+      Data4: -692405169
+    Path: event:/UIElement_Validate
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1220443815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,9 +2487,8 @@ MonoBehaviour:
   cringeEnd: {fileID: 262850511}
   lonelyEnd: {fileID: 1740674707}
   happyEnding: {fileID: 398715569}
-  nextButton: {fileID: 1098296687}
-  winNextButton: {fileID: 951100231}
   timeToPrintEndBandeau: 1.7
+  newFansCounter: {fileID: 312852443}
 --- !u!114 &1220443821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2576,6 +2684,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1098296692}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2080246563}
         m_TargetAssemblyTypeName: SceneToSceneDataKeeper, Assembly-CSharp
         m_MethodName: NextDay
@@ -2775,6 +2895,8 @@ GameObject:
   - component: {fileID: 1353704057}
   - component: {fileID: 1353704056}
   - component: {fileID: 1353704058}
+  - component: {fileID: 1353704060}
+  - component: {fileID: 1353704059}
   m_Layer: 5
   m_Name: FBPosts
   m_TagString: Untagged
@@ -2913,6 +3035,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPostsTextSize: 50
   maximumPostsTextSize: 36
+  audioNormal: {fileID: 1353704060}
+  audioCringe: {fileID: 1353704059}
+--- !u!114 &1353704059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353704054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -77039211
+      Data2: 1088284661
+      Data3: 1446315670
+      Data4: 274052526
+    Path: event:/Score_FB_end
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1353704060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353704054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2134987447
+      Data2: 1081970521
+      Data3: 1107968135
+      Data4: -518335676
+    Path: event:/Score_FB
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1440326155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,6 +3754,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 951100236}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2080246563}
         m_TargetAssemblyTypeName: SceneToSceneDataKeeper, Assembly-CSharp
         m_MethodName: NextDay

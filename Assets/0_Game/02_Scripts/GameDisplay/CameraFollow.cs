@@ -26,8 +26,8 @@ public class CameraFollow : MonoBehaviour
     public GameObject cringeEnd;
     public GameObject lonelyEnd;
     public GameObject happyEnding;
-    public GameObject nextButton;
-    public GameObject winNextButton;
+    //public GameObject nextButton;
+    //public GameObject winNextButton;
     private bool isLastZoom = false;
     private bool isCringeEnd;
     private float popUpTimer = 0.0f;
@@ -35,6 +35,7 @@ public class CameraFollow : MonoBehaviour
 
     private bool doStuff = true;
     private bool isWin = false;
+    public NewFansCounter newFansCounter;
 
 
     // Start is called before the first frame update
@@ -99,14 +100,7 @@ public class CameraFollow : MonoBehaviour
                         cringeEnd.SetActive(false);
                         lonelyEnd.SetActive(false);
                         happyEnding.SetActive(false);
-                        if (isWin)
-                        {
-                            winNextButton.SetActive(true);
-                        }
-                        else
-                        {
-                            nextButton.SetActive(true);
-                        }
+                        newFansCounter.TypeOfEnd(isWin);
                         doStuff = false;
                     }
                 }

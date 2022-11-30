@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public class FaithBlogPostsCounter : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class FaithBlogPostsCounter : MonoBehaviour
     private int authorizedPosts;
     private int currentNumberOfPosts;
     private TextMeshProUGUI fBCounter;
+    public StudioEventEmitter audioNormal;
+    public StudioEventEmitter audioCringe;
 
     private void Start()
     {
@@ -19,19 +22,30 @@ public class FaithBlogPostsCounter : MonoBehaviour
         //Debug.Log("List 4 contains " + dataKeeper.GetSpecificCommunityList(4).Count + " Fans");
         //Debug.Log("So authorized posts are : " + authorizedPosts);
         fBCounter = this.GetComponent<TextMeshProUGUI>();
-        DisplayText();
+        UpdateScore(false);
     }
 
     public void AddFBPosts(int numberOfNewFBPosts)
     {
         currentNumberOfPosts += numberOfNewFBPosts;
-        DisplayText();
+        UpdateScore(true);
     }
 
-    private void DisplayText()
+    private void UpdateScore(bool playSound)
     {
         fBCounter.text = "<b><size=" + numberOfPostsTextSize + ">" + currentNumberOfPosts
             + "</size><size=" + maximumPostsTextSize + "> /" + authorizedPosts;
+        if (playSound)
+        {
+            if (currentNumberOfPosts >= authorizedPosts)
+            {
+                audioCringe.Play();
+            }
+            else
+            {
+                audioNormal.Play();
+            }
+        }
     }
 
     public bool HasStoppedOfCringe()

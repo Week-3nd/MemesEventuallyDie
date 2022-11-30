@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class StateAndFeedbacks : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class StateAndFeedbacks : MonoBehaviour
     private CardsCreation cardsCreation;
     public int cardIndex;
 
+    public StudioEventEmitter audioEventEmitter;
 
     private void Start()
     {
@@ -60,5 +62,6 @@ public class StateAndFeedbacks : MonoBehaviour
         this.isSelected = true;
         cardsCreation.SetSelectedCardIndex(cardIndex);
         validateButton.SetActive(true);
+        audioEventEmitter.Play();
     }
 }

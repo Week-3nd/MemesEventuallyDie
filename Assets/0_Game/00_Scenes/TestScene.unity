@@ -174,7 +174,7 @@ MonoBehaviour:
       Data2: 1207518583
       Data3: 554283428
       Data4: -1668170518
-    Path: event:/Start
+    Path: event:/Bin/Start
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
       Data2: 1153490671
       Data3: -1392921172
       Data4: -1119213229
-    Path: event:/PushButton
+    Path: event:/Bin/PushButton
   Event: 
   PlayEvent: 0
   StopEvent: 0

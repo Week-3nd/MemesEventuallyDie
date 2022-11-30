@@ -239,7 +239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 451334658}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1581859441}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &451334658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +302,7 @@ GameObject:
   - component: {fileID: 502294960}
   - component: {fileID: 502294959}
   - component: {fileID: 502294958}
-  - component: {fileID: 502294962}
+  - component: {fileID: 502294961}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -388,14 +400,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502294955}
   m_CullTransparentMesh: 1
---- !u!81 &502294962
-AudioListener:
+--- !u!114 &502294961
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502294955}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1299047346
+      Data2: 1118496636
+      Data3: 2142460073
+      Data4: 836150032
+    Path: event:/PlayIntroSound
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &586769067
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +597,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 753465230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1581859441}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753465230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &994566314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356784996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1244,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1581859441}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1356785001}
         m_TargetAssemblyTypeName: Video_Controller, Assembly-CSharp
         m_MethodName: Play
@@ -1264,8 +1322,9 @@ MonoBehaviour:
   vidplayer: {fileID: 502294958}
   uIImage: {fileID: 502294959}
   fadeToTransparentTiming: 57
-  fadeToTransparentDuration: 5
+  fadeToTransparentDuration: 3
   videoCanvas: {fileID: 994566313}
+  audioEventEmitter: {fileID: 502294961}
 --- !u!1 &1395196152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1634,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1581859441}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1598379728}
         m_TargetAssemblyTypeName: EndScreenInfoManager, Assembly-CSharp
         m_MethodName: ResetGameHistory
@@ -1710,6 +1781,7 @@ GameObject:
   - component: {fileID: 1581859439}
   - component: {fileID: 1581859438}
   - component: {fileID: 1581859437}
+  - component: {fileID: 1581859441}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1802,6 +1874,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1581859441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581859436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 751032710
+      Data2: 1171235984
+      Data3: -1003153527
+      Data4: -692405169
+    Path: event:/UIElement_Validate
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1596488296
 GameObject:
   m_ObjectHideFlags: 0

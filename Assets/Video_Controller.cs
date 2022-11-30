@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using FMOD;
+using FMODUnity;
 
 public class Video_Controller : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class Video_Controller : MonoBehaviour
     public GameObject videoCanvas;
     private bool isFirstPlay = true;
     private bool isFirstGame;
+    public StudioEventEmitter audioEventEmitter;
 
     // Start is called before the first frame update
     void Start()
@@ -63,5 +66,6 @@ public class Video_Controller : MonoBehaviour
         timer = 0.0f;
         vidplayer.Play();
         isPlaying = true;
+        audioEventEmitter.Play();
     }
 }
