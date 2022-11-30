@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 833573910}
-  velocity: {x: 0, y: 0.0001, z: 0}
+  velocity: {x: 0, y: 10, z: 0}
 --- !u!61 &355591813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 200, y: 4}
-  m_EdgeRadius: 2
+  m_EdgeRadius: 4
 --- !u!212 &355591814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 833573910}
-  velocity: {x: 0, y: -0.0001, z: 0}
+  velocity: {x: 0, y: -10, z: 0}
 --- !u!61 &712339228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 200, y: 4}
-  m_EdgeRadius: 2
+  m_EdgeRadius: 4
 --- !u!212 &712339229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1279,6 +1279,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22bbfab0c9eb59243ae18372d5a3c53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1191015795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 368738865254208009, guid: 7e46afcd75865444da2de1fc5d8eac51, type: 3}
+  m_PrefabInstance: {fileID: 1191015792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170a06e63c0ecc4480d3899668c4b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1348677377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1513,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1191015794}
         m_TargetAssemblyTypeName: SceneToSceneDataKeeper, Assembly-CSharp
         m_MethodName: ResetDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1191015795}
+        m_TargetAssemblyTypeName: EndScreenInfoManager, Assembly-CSharp
+        m_MethodName: FirstGameDone
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

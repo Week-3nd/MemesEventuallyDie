@@ -17,18 +17,24 @@ public class Video_Controller : MonoBehaviour
     private Color invisible = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     public GameObject videoCanvas;
     private bool isFirstPlay = true;
+    private bool isFirstGame;
 
     // Start is called before the first frame update
     void Start()
     {
         vidplayer.url = url;
         uIColor = uIImage.color;
+        isFirstGame = FindObjectOfType<EndScreenInfoManager>().GetIsFirstGame();
+        if (!isFirstGame)
+        {
+            videoCanvas.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey && isFirstPlay)
+        if (Input.anyKey && isFirstPlay && isFirstGame)
         {
             isFirstPlay = false;
             Play();
