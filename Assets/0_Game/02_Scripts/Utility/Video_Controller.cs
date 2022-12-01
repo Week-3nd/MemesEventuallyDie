@@ -21,6 +21,7 @@ public class Video_Controller : MonoBehaviour
     private bool isFirstPlay = true;
     private bool isFirstGame;
     public StudioEventEmitter audioEventEmitter;
+    public GameObject playArrow;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class Video_Controller : MonoBehaviour
         isFirstGame = FindObjectOfType<EndScreenInfoManager>().GetIsFirstGame();
         if (!isFirstGame)
         {
+            playArrow.SetActive(false);
             videoCanvas.SetActive(false);
         }
     }
@@ -62,6 +64,7 @@ public class Video_Controller : MonoBehaviour
     public void Play()
     {
         videoCanvas.SetActive(true);
+        playArrow.SetActive(false);
         uIImage.color = uIColor;
         timer = 0.0f;
         vidplayer.Play();
