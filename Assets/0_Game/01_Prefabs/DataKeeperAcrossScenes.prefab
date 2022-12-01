@@ -142,8 +142,8 @@ MonoBehaviour:
   baseMaxViralityBonus: 0.03
   extendedMinViralityBonus: -0.06
   extendedMaxViralityBonus: 0.09
-  baseMinCringenessBonus: -0.01
-  baseMaxCringenessBonus: 0.02
+  baseMinCringenessBonus: -0.2
+  baseMaxCringenessBonus: 0.1
   extendedMinCringenessBonus: -0.02
   extendedMaxCringenessBonus: 0.07
   baseMinUniversality: 4
