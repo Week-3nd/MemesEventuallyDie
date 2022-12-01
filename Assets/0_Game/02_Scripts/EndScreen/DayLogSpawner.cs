@@ -10,7 +10,6 @@ public class DayLogSpawner : MonoBehaviour
     private Vector3 startPosition;
     private EndScreenInfoManager dataKeeper;
     public StudioEventEmitter victoryVoiceLine;
-    private bool hasPlayedAudio = false;
 
     private void Start()
     {
