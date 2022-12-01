@@ -140,8 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMinViralityBonus: -0.01
   baseMaxViralityBonus: 0.03
-  extendedMinViralityBonus: -0.04
-  extendedMaxViralityBonus: 0.09
+  extendedMinViralityBonus: -0.03
+  extendedMaxViralityBonus: 0.06
   baseMinCringenessBonus: -0.02
   baseMaxCringenessBonus: 0.01
   extendedMinCringenessBonus: -0.02
