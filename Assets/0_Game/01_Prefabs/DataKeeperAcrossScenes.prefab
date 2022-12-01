@@ -113,12 +113,12 @@ MonoBehaviour:
   - {x: 7, y: 10}
   - {x: 11, y: 15}
   clickbaitSpecialists:
-  - {x: 0, y: 0.3, z: 0.3}
+  - {x: 0, y: 0.29, z: 0.3}
   - {x: 1, y: 0.3, z: 0.32}
   - {x: 3, y: 0.3, z: 0.34}
   - {x: 5, y: 0.3, z: 0.35}
-  - {x: 8, y: 0.29, z: 0.36}
-  - {x: 11, y: 0.28, z: 0.37}
+  - {x: 8, y: 0.3, z: 0.36}
+  - {x: 11, y: 0.3, z: 0.37}
   clickbaitSpecialistsInvinsible:
   - {x: 0, y: 4}
   - {x: 1, y: 5}
