@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class DayLogSpawner : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class DayLogSpawner : MonoBehaviour
     public Vector3 dayLogsSpacing;
     private Vector3 startPosition;
     private EndScreenInfoManager dataKeeper;
+    public StudioEventEmitter victoryVoiceLine;
 
     private void Start()
     {
         dataKeeper = FindObjectOfType<EndScreenInfoManager>();
         SpawnDayLogs(dataKeeper.GetGameHistory());
+        victoryVoiceLine.Play();
     }
 
     public void SpawnDayLogs(List<DayData> gameHistory)

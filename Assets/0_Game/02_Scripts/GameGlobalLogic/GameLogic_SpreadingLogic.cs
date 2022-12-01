@@ -72,7 +72,7 @@ public class GameLogic_SpreadingLogic : MonoBehaviour
             + cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].viralityBonus;
 
         SuccessProbability =
-            highShareChances;
+            LowShareChances;
 
         FailureProbability
             += cardsCreation.GetCardsList()[cardsCreation.GetSelectedCardIndex()].cringenessBonus;

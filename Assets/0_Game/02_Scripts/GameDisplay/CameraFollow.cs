@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -24,8 +25,11 @@ public class CameraFollow : MonoBehaviour
 
     // on spreading end : one of the 2 will be displayed
     public GameObject cringeEnd;
+    public StudioEventEmitter cringeEndAudio;
     public GameObject lonelyEnd;
+    public StudioEventEmitter lonelyEndAudio;
     public GameObject happyEnding;
+    public StudioEventEmitter happyEndingAudio;
     //public GameObject nextButton;
     //public GameObject winNextButton;
     private bool isLastZoom = false;
@@ -80,16 +84,19 @@ public class CameraFollow : MonoBehaviour
                         if (isWin)
                         {
                             happyEnding.SetActive(true);
+                            happyEndingAudio.Play();
                         }
                         else
                         {
                             if (isCringeEnd)
                             {
                                 cringeEnd.SetActive(true);
+                                cringeEndAudio.Play();
                             }
                             else
                             {
                                 lonelyEnd.SetActive(true);
+                                lonelyEndAudio.Play();
                             }
                         }
                     }
