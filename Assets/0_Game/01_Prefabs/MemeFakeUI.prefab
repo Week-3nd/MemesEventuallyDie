@@ -3058,11 +3058,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 751032710
-      Data2: 1171235984
-      Data3: -1003153527
-      Data4: -692405169
-    Path: event:/UIElement_Validate
+      Data1: 1002512417
+      Data2: 1228745063
+      Data3: -2017570411
+      Data4: -1740206095
+    Path: event:/UIElement_Hover
   Event: 
   PlayEvent: 0
   StopEvent: 0

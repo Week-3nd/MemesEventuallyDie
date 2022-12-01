@@ -10,6 +10,7 @@ public class DayLogSpawner : MonoBehaviour
     private Vector3 startPosition;
     private EndScreenInfoManager dataKeeper;
     public StudioEventEmitter victoryVoiceLine;
+    private bool hasPlayedAudio = false;
 
     private void Start()
     {
@@ -17,6 +18,8 @@ public class DayLogSpawner : MonoBehaviour
         SpawnDayLogs(dataKeeper.GetGameHistory());
         victoryVoiceLine.Play();
     }
+
+
 
     public void SpawnDayLogs(List<DayData> gameHistory)
     {

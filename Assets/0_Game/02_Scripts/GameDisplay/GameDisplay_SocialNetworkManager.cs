@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using FMODUnity;
 
 public class GameDisplay_SocialNetworkManager : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
     private int newFansAmount = 0;
 
 
-    
+
+
     public void StartDrawing()
     {
         FollowingCamera.GetComponent<CameraFollow>().SetRezoomRate(HorizontalSpacing);
@@ -62,10 +64,16 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
         if (AuthorizationToDraw)
         {
             RowTimer += Time.deltaTime;
+
+
+
+
+
             if (RowTimer >= TimeBetweenRows && NextRow < SocialNetwork.DepthLists.Count)
             {
                 RowTimer = 0.0f;
                 DrawRowT1(NextRow); // place to put function B
+                // iterator
                 NextRow++;
             }
             else if (NextRow >= SocialNetwork.DepthLists.Count)
@@ -84,16 +92,19 @@ public class GameDisplay_SocialNetworkManager : MonoBehaviour
                 EndScreenInfoManager endScreenInfoManager = FindObjectOfType<EndScreenInfoManager>();
                 endScreenInfoManager.AddDayData(todaysData);
                 Debug.Log("Added day " + FindObjectOfType<SceneToSceneDataKeeper>().GetCurrentDay() + " data in history");
+
+
             }
         }
     }
+
     
 
 
 
 
     // We can use one of these groups of functions
-    
+
 
 
 

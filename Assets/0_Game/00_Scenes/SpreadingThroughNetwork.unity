@@ -297,8 +297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 350, y: 60}
+  m_AnchoredPosition: {x: 0, y: 120}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &74601739
 MonoBehaviour:
@@ -1732,7 +1732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &951100232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,6 +2077,17 @@ MonoBehaviour:
   CameraLastDezoomDuration: 0.1
   newFansCounter: {fileID: 312852443}
   FaithBlogPostsCounter: {fileID: 1353704058}
+  _audioSpread:
+    Guid:
+      Data1: 537559106
+      Data2: 1171914625
+      Data3: -1325318772
+      Data4: -762295909
+    Path: event:/SpreadAUDIO
+  minAudioPitch: 0
+  maxAudioPitch: 1
+  minScoreThreshold: 0
+  maxScoreThreshold: 1000
 --- !u!114 &1038196482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3759,7 +3770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1819364830
 RectTransform:
   m_ObjectHideFlags: 0

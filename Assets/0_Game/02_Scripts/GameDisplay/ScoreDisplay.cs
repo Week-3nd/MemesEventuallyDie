@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using FMODUnity;
 
 public class ScoreDisplay : MonoBehaviour
 {
@@ -24,6 +25,31 @@ public class ScoreDisplay : MonoBehaviour
 
 
 
+    // audio
+    [SerializeField] private FMODUnity.EventReference _audioSpread;
+    private FMOD.Studio.EventInstance audioSpread;
+
+    public float minAudioPitch;
+    public float maxAudioPitch;
+    public float minScoreThreshold;
+    public float maxScoreThreshold;
+    private float previousAudioPitch = 0;
+    private float nextAudioPitch = 0;
+    private float currentAudioPitch = 0;
+
+
+    private void Start()
+    {
+        audioSpread = FMODUnity.RuntimeManager.CreateInstance(_audioSpread);
+        //audioSpread.setParameterByName("SpreadAudioControl", 1);
+        if (audioSpread.isValid())
+        {
+            audioSpread.start();
+            //audioSpread.setParameterByName("EndSpread", 0);
+        }
+    }
+
+
     private void Update()
     {
         if (!StopCalculating)
@@ -32,6 +58,9 @@ public class ScoreDisplay : MonoBehaviour
             StoredScore = RealScore - DisplayedScore;
 
             IncrementInterval = SpeedAccordingToStoredScoreReference.CurveList[0].Evaluate(StoredScore);
+            currentAudioPitch = Mathf.Lerp(previousAudioPitch, nextAudioPitch, Mathf.Clamp01(Timer / IncrementInterval));
+            audioSpread.setParameterByName("SpreadAudioControl", currentAudioPitch);
+            Debug.Log("Current audio parameter " + currentAudioPitch.ToString());
 
             if (Timer >= IncrementInterval && DisplayedScore < RealScore)
             {
@@ -39,16 +68,30 @@ public class ScoreDisplay : MonoBehaviour
                 DisplayedScore += amount;
                 Timer = 0.0f;
                 ScoreText.text = DisplayedScore.ToString();
+
+                previousAudioPitch = nextAudioPitch;
+                float floatScore = DisplayedScore;
+                nextAudioPitch = Mathf.Lerp(minAudioPitch, maxAudioPitch, Mathf.Clamp01((floatScore - minScoreThreshold) / (maxScoreThreshold - minScoreThreshold)));
+                //Debug.Log("Next audio parameter " + nextAudioPitch.ToString());
                 //Debug.Log(DisplayedScore.ToString());
             }
             else if (Timer >= IncrementInterval && LastScoreUpdateDone && DisplayedScore == RealScore)
             {
                 //ObjectToActivateUponFinish.SetActive(true);
+
                 newFansCounter.DisplayNewFans();
                 StopCalculating = true;
                 Camera.SetTarget(CameraLastPosition, CameraLastZoomFactor, CameraLastDezoomDuration);
                 Timer = 0.0f;
                 Camera.NextZoomIsLast(FaithBlogPostsCounter.HasStoppedOfCringe());
+                //Debug.Log("Should stop sounding");
+
+            }
+
+            if (LastScoreUpdateDone && DisplayedScore == RealScore && Timer>= IncrementInterval/2) // delay fait maison
+            {
+
+                audioSpread.setParameterByName("EndSpread", 2);
             }
         }
         
